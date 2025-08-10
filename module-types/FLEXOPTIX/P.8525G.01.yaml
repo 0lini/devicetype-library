@@ -1,0 +1,9 @@
+---
+manufacturer: FLEXOPTIX
+model: P.8525G.01
+part_number: P.8525G.01
+airflow: passive
+interfaces:
+  - name: "{module}"
+    type: 25gbase-x-sfp28
+profile: SFP transceiver

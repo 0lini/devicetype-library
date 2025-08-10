@@ -1,0 +1,9 @@
+---
+manufacturer: FLEXOPTIX
+model: T.C12.02.A
+part_number: T.C12.02.A
+airflow: passive
+interfaces:
+  - name: "{module}"
+    type: 1000base-t
+profile: SFP transceiver

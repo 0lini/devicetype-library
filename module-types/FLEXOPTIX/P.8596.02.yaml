@@ -1,0 +1,9 @@
+---
+manufacturer: FLEXOPTIX
+model: P.8596.02
+part_number: P.8596.02
+airflow: passive
+interfaces:
+  - name: "{module}"
+    type: 10gbase-x-sfpp
+profile: SFP transceiver

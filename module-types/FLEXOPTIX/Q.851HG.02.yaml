@@ -1,0 +1,9 @@
+---
+manufacturer: FLEXOPTIX
+model: Q.851HG.02
+part_number: Q.851HG.02
+airflow: passive
+interfaces:
+  - name: "{module}"
+    type: 100gbase-x-qsfp28
+profile: SFP transceiver
