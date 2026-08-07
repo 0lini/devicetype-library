@@ -102,11 +102,9 @@ interfaces:
   - name: 1/17
     label: '17'
     type: 10gbase-t
-    description: '1/2.5/5/10GBASE-T multi-gig uplink'
   - name: 1/18
     label: '18'
     type: 10gbase-t
-    description: '1/2.5/5/10GBASE-T multi-gig uplink'
   - name: Mgmt-clip
     type: virtual
     mgmt_only: true
@@ -117,8 +115,6 @@ module-bays:
   - name: 1/19
     label: U1
     position: 1/19
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: 1/20
     label: U2
     position: 1/20
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'

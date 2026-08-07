@@ -115,8 +115,6 @@ module-bays:
   - name: 1/19
     label: U1
     position: 1/19
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: 1/20
     label: U2
     position: 1/20
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'

@@ -101,15 +101,15 @@ module-bays:
   - name: 1/25
     label: '25'
     position: 1/25
-    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+    description: Reserved for internal loopback function when the switch operates in SPBM mode
   - name: 1/26
     label: '26'
     position: 1/26
-    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+    description: Reserved for internal loopback function when the switch operates in SPBM mode
   - name: 1/27
     label: '27'
     position: 1/27
-    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+    description: Reserved for internal loopback function when the switch operates in SPBM mode
   - name: 1/28
     label: '28'
     position: 1/28
@@ -122,8 +122,6 @@ module-bays:
   - name: 1/31
     label: U1
     position: 1/31
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: 1/32
     label: U2
     position: 1/32
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
