@@ -10,7 +10,7 @@ weight_unit: kg
 airflow: left-to-right
 comments: 'Dual-persona Universal Hardware running Fabric Engine (VOSS). No internal chassis module bays; the optional LRM/MACsec Adapter (part 10965) is an external accessory that plugs into an SFP+ port and is not modelled as a module-bay. [5320 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d474173d28554fb5925dc4e26312c8fe?v=c6d9813f) | [5320 Series Installation Guide](https://documentation.extremenetworks.com/5320%20Series%20Installation%20Guide/downloads/5320_Series_Installation_Guide.pdf)'
 power-ports:
-  - name: DC-In
+  - name: PS#1
     type: dc-terminal
     maximum_draw: 260
 console-ports:
