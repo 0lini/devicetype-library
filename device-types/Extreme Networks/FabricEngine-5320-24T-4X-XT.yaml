@@ -24,7 +24,7 @@ console-ports:
   - name: USB console
     type: usb-micro-b
 interfaces:
-  - name: mgmt
+  - name: Mgmt-oob
     type: 1000base-t
     mgmt_only: true
   - name: 1/1
