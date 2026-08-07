@@ -266,9 +266,9 @@ interfaces:
     poe_type: type4-ieee802.3bt
 module-bays:
   - name: PS#1
-    position: 1
+    position: '1'
   - name: PS#2
-    position: 2
+    position: '2'
   - name: VIM
     position: VIM
   - name: 1/49
