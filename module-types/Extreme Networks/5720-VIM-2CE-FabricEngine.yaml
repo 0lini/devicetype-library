@@ -1,0 +1,12 @@
+---
+manufacturer: Extreme Networks
+model: 5720-VIM-2CE-FabricEngine
+part_number: 5720-VIM-2CE
+comments: '2x 100Gbase-X QSFP28 ports (unpopulated). Fabric Engine VIM slot number is 2.'
+weight: 0.22
+weight_unit: kg
+interfaces:
+  - name: 2/1
+    type: 100gbase-x-qsfp28
+  - name: 2/2
+    type: 100gbase-x-qsfp28
