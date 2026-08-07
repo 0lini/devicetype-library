@@ -99,23 +99,24 @@ interfaces:
     type: 1000base-t
     poe_mode: pse
     poe_type: type2-ieee802.3at
-  - name: 1/17
-    label: '17'
-    type: 10gbase-x-sfpp
-  - name: 1/18
-    label: '18'
-    type: 10gbase-x-sfpp
-  - name: 1/19
-    label: U1
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
-  - name: 1/20
-    label: U2
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: Mgmt-clip
     type: virtual
     mgmt_only: true
   - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
+module-bays:
+  - name: 1/17
+    label: '17'
+    position: 1/17
+  - name: 1/18
+    label: '18'
+    position: 1/18
+  - name: 1/19
+    label: U1
+    position: 1/19
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
+  - name: 1/20
+    label: U2
+    position: 1/20
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'

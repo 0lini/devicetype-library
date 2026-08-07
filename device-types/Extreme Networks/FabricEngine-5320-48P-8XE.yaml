@@ -259,38 +259,39 @@ interfaces:
     type: 1000base-t
     poe_mode: pse
     poe_type: type2-ieee802.3at
-  - name: 1/49
-    label: '49'
-    type: 10gbase-x-sfpp
-    description: Reserved for internal loopback when operating in SPBM/fabric mode
-  - name: 1/50
-    label: '50'
-    type: 10gbase-x-sfpp
-    description: Reserved for internal loopback when operating in SPBM/fabric mode
-  - name: 1/51
-    label: '51'
-    type: 10gbase-x-sfpp
-    description: Reserved for internal loopback when operating in SPBM/fabric mode
-  - name: 1/52
-    label: '52'
-    type: 10gbase-x-sfpp
-  - name: 1/53
-    label: '53'
-    type: 10gbase-x-sfpp
-  - name: 1/54
-    label: '54'
-    type: 10gbase-x-sfpp
-  - name: 1/55
-    label: U1
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
-  - name: 1/56
-    label: U2
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: Mgmt-clip
     type: virtual
     mgmt_only: true
   - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
+module-bays:
+  - name: 1/49
+    label: '49'
+    position: 1/49
+    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+  - name: 1/50
+    label: '50'
+    position: 1/50
+    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+  - name: 1/51
+    label: '51'
+    position: 1/51
+    description: 'Reserved for internal loopback function when the switch operates in SPBM mode'
+  - name: 1/52
+    label: '52'
+    position: 1/52
+  - name: 1/53
+    label: '53'
+    position: 1/53
+  - name: 1/54
+    label: '54'
+    position: 1/54
+  - name: 1/55
+    label: U1
+    position: 1/55
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
+  - name: 1/56
+    label: U2
+    position: 1/56
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'

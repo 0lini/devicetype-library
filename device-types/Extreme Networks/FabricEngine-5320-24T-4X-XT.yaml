@@ -13,7 +13,7 @@ power-ports:
   - name: PSU1
     type: iec-60320-c14
     maximum_draw: 49
-    description: Fixed power supply
+    description: 'Fixed power supply'
   - name: RPS1
     type: dc-terminal
     maximum_draw: 49
@@ -100,23 +100,24 @@ interfaces:
   - name: 1/24
     label: '24'
     type: 1000base-t
-  - name: 1/25
-    label: '25'
-    type: 10gbase-x-sfpp
-  - name: 1/26
-    label: '26'
-    type: 10gbase-x-sfpp
-  - name: 1/27
-    label: U1
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
-  - name: 1/28
-    label: U2
-    type: 10gbase-x-sfpp
-    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
   - name: Mgmt-clip
     type: virtual
     mgmt_only: true
   - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
+module-bays:
+  - name: 1/25
+    label: '25'
+    position: 1/25
+  - name: 1/26
+    label: '26'
+    position: 1/26
+  - name: 1/27
+    label: U1
+    position: 1/27
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
+  - name: 1/28
+    label: U2
+    position: 1/28
+    description: 'Universal Ethernet port (U1/U2); usable as 10GbE when Fabric Engine is in non-fabric mode'
