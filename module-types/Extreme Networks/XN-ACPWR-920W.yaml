@@ -1,7 +1,10 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-920W
+part_number: XN-ACPWR-920W
+comments: 920W AC PoE PSU, front-to-back airflow (C14 inlet). Compatible with 4120 Series, 5420F-48P-4XE, 5420F-48P-4XL, 5420M-48W-4YE, and 5420M-16MW-32P-4YE.
+airflow: front-to-rear
 power-ports:
-  - name: Ps#{module}
-    type: iec-60320-c14
-    maximum_draw: 920
+- name: PS#{module}
+  type: iec-60320-c14
+  maximum_draw: 920

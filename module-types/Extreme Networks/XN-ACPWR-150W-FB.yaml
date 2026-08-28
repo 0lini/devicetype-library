@@ -1,7 +1,10 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-150W-FB
+part_number: XN-ACPWR-150W-FB
+comments: 150W AC PSU, front-to-back airflow (C14 inlet). Compatible with 5420F-24T-4XE, 5420F-24S-4XE, 5420F-48T-4XE, 5420M-24T-4YE, and 5420M-48T-4YE.
+airflow: front-to-rear
 power-ports:
-  - name: Ps#{module}
-    type: iec-60320-c14
-    maximum_draw: 150
+- name: PS#{module}
+  type: iec-60320-c14
+  maximum_draw: 150
