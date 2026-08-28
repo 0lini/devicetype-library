@@ -167,8 +167,6 @@ module-bays:
 - name: 1/29
   label: U1
   position: 1/29
-  description: 100Gb ethernet
 - name: 1/30
   label: U2
   position: 1/30
-  description: 100Gb ethernet

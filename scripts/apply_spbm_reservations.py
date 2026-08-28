@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Apply SPBM loopback port reservation descriptions to FabricEngine device types."""
+"""Apply Universal Ethernet faceplate labels to FabricEngine device types."""
 from __future__ import annotations
 
-import re
 from pathlib import Path
 
 import yaml
@@ -10,93 +9,26 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 DT = ROOT / "device-types" / "Extreme Networks"
 
-SPBM_LOW = "Reserved for internal loopback in SPBM low bandwidth mode"
-SPBM_UE_LOW = (
-    "Universal Ethernet port; reserved for internal loopback in SPBM low bandwidth mode"
-)
-SPBM_VIM = "VIM slot reserved for internal loopback in SPBM vim bandwidth mode"
-SPBM_VIM_HIGH = (
-    "VIM slot reserved for internal loopback in SPBM high/vim bandwidth mode"
-)
-SPBM_UE_HIGH = (
-    "Universal Ethernet port; reserved for internal loopback in SPBM high/vim bandwidth mode"
-)
-SPBM_4220_SFP = (
-    "Last SFP+ port; in SPBM high bandwidth mode UNI-NNI and NNI-UNI bandwidth is limited to 1 Gbps"
+SPBM_7830_COMMENT = (
+    "In SPBM low bandwidth mode, installing 7830-VIM-16CE in VIM2 (slot 3) reserves "
+    "ports 3/13-3/16; installing 7830-VIM-8DE in VIM2 reserves ports 3/7-3/8. "
+    "Otherwise no VIM ports are reserved."
 )
 
-# model suffix -> {bay_or_iface_name: (label, description)}
-RULES: dict[str, dict[str, tuple[str | None, str | None]]] = {
-    # 5320 8XE - already mostly correct; normalize descriptions
-    "5320-24P-8XE": {
-        "1/25": (None, SPBM_LOW),
-        "1/26": (None, SPBM_LOW),
-        "1/27": (None, SPBM_LOW),
-    },
-    "5320-24T-8XE": {
-        "1/25": (None, SPBM_LOW),
-        "1/26": (None, SPBM_LOW),
-        "1/27": (None, SPBM_LOW),
-    },
-    "5320-48P-8XE": {
-        "1/49": (None, SPBM_LOW),
-        "1/50": (None, SPBM_LOW),
-        "1/51": (None, SPBM_LOW),
-    },
-    "5320-48T-8XE": {
-        "1/49": (None, SPBM_LOW),
-        "1/50": (None, SPBM_LOW),
-        "1/51": (None, SPBM_LOW),
-    },
-    # 4220 - last 2 SFP+ only
-    "4220-8X": {
-        "1/7": ("U1", SPBM_4220_SFP),
-        "1/8": ("U2", SPBM_4220_SFP),
-    },
-    "4220-4MW-8P-4X": {
-        "1/15": ("U1", SPBM_4220_SFP),
-        "1/16": ("U2", SPBM_4220_SFP),
-    },
-    "4220-4MW-20P-4X": {
-        "1/27": ("U1", SPBM_4220_SFP),
-        "1/28": ("U2", SPBM_4220_SFP),
-    },
-    "4220-12T-4X": {
-        "1/15": ("U1", SPBM_4220_SFP),
-        "1/16": ("U2", SPBM_4220_SFP),
-    },
-    "4220-12P-4X": {
-        "1/15": ("U1", SPBM_4220_SFP),
-        "1/16": ("U2", SPBM_4220_SFP),
-    },
-    "4220-24T-4X": {
-        "1/27": ("U1", SPBM_4220_SFP),
-        "1/28": ("U2", SPBM_4220_SFP),
-    },
-    "4220-24P-4X": {
-        "1/27": ("U1", SPBM_4220_SFP),
-        "1/28": ("U2", SPBM_4220_SFP),
-    },
-    "4220-48T-4X": {
-        "1/51": ("U1", SPBM_4220_SFP),
-        "1/52": ("U2", SPBM_4220_SFP),
-    },
-    "4220-48P-4X": {
-        "1/51": ("U1", SPBM_4220_SFP),
-        "1/52": ("U2", SPBM_4220_SFP),
-    },
-    "4220-8MW-40P-4X": {
-        "1/51": ("U1", SPBM_4220_SFP),
-        "1/52": ("U2", SPBM_4220_SFP),
-    },
-    "4120-24MW-4Y": {
-        "1/29": ("U1", "100Gb ethernet"),
-        "1/30": ("U2", "100Gb ethernet"),
-    },
-    "4120-48MW-4Y": {
-        "1/53": ("U1", "100Gb ethernet"),
-        "1/54": ("U2", "100Gb ethernet"),
-    },
+# model suffix -> {bay_or_iface_name: faceplate label}
+LABEL_RULES: dict[str, dict[str, str]] = {
+    "4220-8X": {"1/7": "U1", "1/8": "U2"},
+    "4220-4MW-8P-4X": {"1/15": "U1", "1/16": "U2"},
+    "4220-4MW-20P-4X": {"1/27": "U1", "1/28": "U2"},
+    "4220-12T-4X": {"1/15": "U1", "1/16": "U2"},
+    "4220-12P-4X": {"1/15": "U1", "1/16": "U2"},
+    "4220-24T-4X": {"1/27": "U1", "1/28": "U2"},
+    "4220-24P-4X": {"1/27": "U1", "1/28": "U2"},
+    "4220-48T-4X": {"1/51": "U1", "1/52": "U2"},
+    "4220-48P-4X": {"1/51": "U1", "1/52": "U2"},
+    "4220-8MW-40P-4X": {"1/51": "U1", "1/52": "U2"},
+    "4120-24MW-4Y": {"1/29": "U1", "1/30": "U2"},
+    "4120-48MW-4Y": {"1/53": "U1", "1/54": "U2"},
 }
 
 PORT24_5420 = [
@@ -108,10 +40,7 @@ PORT24_5420 = [
     "5420M-24W-4YE",
 ]
 for m in PORT24_5420:
-    RULES[m] = {
-        "1/29": ("U1", SPBM_UE_LOW),
-        "1/30": ("U2", SPBM_UE_LOW),
-    }
+    LABEL_RULES[m] = {"1/29": "U1", "1/30": "U2"}
 
 PORT48_5420 = [
     "5420F-48T-4XE",
@@ -125,169 +54,77 @@ PORT48_5420 = [
     "5420M-24W-24S-4YE",
 ]
 for m in PORT48_5420:
-    RULES[m] = {
-        "1/53": ("U1", SPBM_UE_LOW),
-        "1/54": ("U2", SPBM_UE_LOW),
-    }
+    LABEL_RULES[m] = {"1/53": "U1", "1/54": "U2"}
 
 PORT24_5520 = ["5520-24T", "5520-24W", "5520-24X"]
 for m in PORT24_5520:
-    RULES[m] = {
-        "1/25": ("U1", SPBM_UE_LOW),
-        "1/26": ("U2", SPBM_UE_LOW),
-        "VIM": (None, SPBM_VIM),
-    }
+    LABEL_RULES[m] = {"1/25": "U1", "1/26": "U2"}
 
 PORT48_5520 = ["5520-12MW-36W", "5520-48SE", "5520-48T", "5520-48W"]
 for m in PORT48_5520:
-    RULES[m] = {
-        "1/49": ("U1", SPBM_UE_LOW),
-        "1/50": ("U2", SPBM_UE_LOW),
-        "VIM": (None, SPBM_VIM),
-    }
+    LABEL_RULES[m] = {"1/49": "U1", "1/50": "U2"}
 
-RULES["5720-24MW"] = {
-    "1/25": ("U1", None),
-    "1/26": ("U2", None),
-    "VIM": (None, SPBM_VIM_HIGH),
-}
-RULES["5720-24MXW"] = RULES["5720-24MW"].copy()
+LABEL_RULES["5720-24MW"] = {"1/25": "U1", "1/26": "U2"}
+LABEL_RULES["5720-24MXW"] = LABEL_RULES["5720-24MW"].copy()
+LABEL_RULES["5720-48MW"] = {"1/49": "U1", "1/50": "U2"}
+LABEL_RULES["5720-48MXW"] = LABEL_RULES["5720-48MW"].copy()
 
-RULES["5720-48MW"] = {
-    "1/49": ("U1", SPBM_UE_HIGH),
-    "1/50": ("U2", SPBM_UE_HIGH),
-    "VIM": (None, SPBM_VIM_HIGH),
-}
-RULES["5720-48MXW"] = RULES["5720-48MW"].copy()
-
-# 5320 8XE / 4XE Universal Ethernet faceplate labels (not SPBM-reserved on 16P)
 for m in ("5320-24P-8XE", "5320-24T-8XE"):
-    RULES.setdefault(m, {}).update({"1/31": ("U1", None), "1/32": ("U2", None)})
+    LABEL_RULES.setdefault(m, {}).update({"1/31": "U1", "1/32": "U2"})
 for m in ("5320-48P-8XE", "5320-48T-8XE"):
-    RULES.setdefault(m, {}).update({"1/55": ("U1", None), "1/56": ("U2", None)})
+    LABEL_RULES.setdefault(m, {}).update({"1/55": "U1", "1/56": "U2"})
 for m in ("5320-16P-4XE", "5320-16P-4XE-DC"):
-    RULES.setdefault(m, {}).update({"1/19": ("U1", None), "1/20": ("U2", None)})
+    LABEL_RULES.setdefault(m, {}).update({"1/19": "U1", "1/20": "U2"})
 
-IFACE_RULES: dict[str, dict[str, str]] = {
-    "7520-48XT-6C": {
-        "1/54": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode disabled)"
-        ),
-        "1/53": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode enabled)"
-        ),
-    },
-    "7520-48Y-8C": {
-        "1/55": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/56": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/54": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode disabled)"
-        ),
-        "1/53": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode enabled)"
-        ),
-    },
-    "7520-48YE-8CE": {
-        "1/55": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/56": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/54": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode disabled)"
-        ),
-        "1/53": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode enabled)"
-        ),
-    },
-    "7720-32C": {
-        "1/31": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/32": "Reserved for internal loopback in SPBM high bandwidth mode",
-        "1/30": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode disabled)"
-        ),
-        "1/29": (
-            "Reserved for internal loopback in SPBM high bandwidth mode "
-            "(VXLAN Full Interworking Mode enabled)"
-        ),
-    },
-}
-
-SPBM_7830_COMMENT = (
-    "In SPBM low bandwidth mode, installing 7830-VIM-16CE in VIM2 (slot 3) reserves "
-    "ports 3/13-3/16; installing 7830-VIM-8DE in VIM2 reserves ports 3/7-3/8. "
-    "Otherwise no VIM ports are reserved."
+KEEP_DESCRIPTION_PREFIXES = (
+    "Removable storage",
+    "Redundant",
+    "Fixed power",
+    "LRM capable",
+    "Direct to CPU",
+    "CPU and BMC",
+    "40/100G only",
+    "100M/1G/10G RJ-45 OOB",
+    "1G/10G SFP+ OOB",
 )
 
 
-def sanitize_stacking_description(desc: str) -> str | None:
-    """Remove Switch Engine stacking references from Fabric Engine port descriptions."""
-    if desc in ("For normal use or for stacking.", "For stacking or as additional SFP+"):
-        return None
-    if desc.startswith("Can be used for stacking in Switch Engine"):
-        return None
-    if desc.startswith("Can be used for stacking or "):
-        return desc[len("Can be used for stacking or ") :]
-    if " Or use for stacking." in desc:
-        cleaned = desc.replace(" Or use for stacking.", "").strip()
-        return cleaned or None
-    if "for stacking or " in desc.lower():
-        idx = desc.lower().find("for stacking or ")
-        return desc[idx + len("for stacking or ") :].strip()
-    return desc
+def should_drop_description(desc: str) -> bool:
+    if any(desc.startswith(prefix) for prefix in KEEP_DESCRIPTION_PREFIXES):
+        return False
+    lowered = desc.lower()
+    drop_markers = (
+        "spbm",
+        "stacking",
+        "internal loopback",
+        "100gb ethernet",
+        "last sfp+",
+        "supports ",
+        "universal ethernet port",
+        "vim slot reserved",
+        "for normal use or for",
+        "connects at 1x40gb",
+    )
+    return any(marker in lowered for marker in drop_markers)
 
 
-def strip_stacking_descriptions(data: dict) -> bool:
+def strip_redundant_descriptions(data: dict) -> bool:
     changed = False
     for section in ("interfaces", "module-bays"):
         for item in data.get(section, []) or []:
             desc = item.get("description")
-            if not desc or "stacking" not in desc.lower():
-                continue
-            cleaned = sanitize_stacking_description(desc)
-            if cleaned is None:
+            if desc and should_drop_description(desc):
                 del item["description"]
-            else:
-                item["description"] = cleaned
-            changed = True
+                changed = True
     return changed
 
 
-def apply_bay_rules(data: dict, rules: dict[str, tuple[str | None, str | None]]) -> None:
-    for section in ("module-bays",):
-        items = data.get(section)
-        if not items:
-            continue
-        for item in items:
-            name = item.get("name")
-            if name not in rules:
-                continue
-            label, desc = rules[name]
-            if label is not None:
-                item["label"] = label
-            if desc is not None:
-                item["description"] = desc
-            elif "description" in item and desc is None:
-                # Clear stale stacking/loopback text when explicitly unset
-                stale = (
-                    "Can be used for stacking",
-                    "Connects at 1x40Gb",
-                    "For normal use or for stacking",
-                    "Reserved for internal loopback when a VIM is installed",
-                )
-                if any(item["description"].startswith(s) for s in stale):
-                    del item["description"]
-
-
-def apply_iface_rules(data: dict, rules: dict[str, str]) -> None:
-    for item in data.get("interfaces", []) or []:
+def apply_label_rules(data: dict, rules: dict[str, str]) -> None:
+    for item in data.get("module-bays", []) or []:
         name = item.get("name")
         if name in rules:
-            item["description"] = rules[name]
+            item["label"] = rules[name]
+            item.pop("description", None)
 
 
 def dump_yaml(data: dict) -> str:
@@ -297,22 +134,13 @@ def dump_yaml(data: dict) -> str:
 
 def main() -> None:
     updated = []
-    for model, rules in RULES.items():
+    for model, rules in LABEL_RULES.items():
         path = DT / f"FabricEngine-{model}.yaml"
         if not path.exists():
             print(f"SKIP missing {path.name}")
             continue
         data = yaml.safe_load(path.read_text())
-        apply_bay_rules(data, rules)
-        path.write_text(dump_yaml(data))
-        updated.append(path.name)
-
-    for model, rules in IFACE_RULES.items():
-        path = DT / f"FabricEngine-{model}.yaml"
-        if not path.exists():
-            continue
-        data = yaml.safe_load(path.read_text())
-        apply_iface_rules(data, rules)
+        apply_label_rules(data, rules)
         path.write_text(dump_yaml(data))
         updated.append(path.name)
 
@@ -326,7 +154,7 @@ def main() -> None:
 
     for path in sorted(DT.glob("FabricEngine-*.yaml")):
         data = yaml.safe_load(path.read_text())
-        if strip_stacking_descriptions(data):
+        if strip_redundant_descriptions(data):
             path.write_text(dump_yaml(data))
             updated.append(path.name)
 

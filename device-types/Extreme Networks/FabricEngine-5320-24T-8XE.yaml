@@ -109,32 +109,24 @@ module-bays:
 - name: 1/25
   label: '25'
   position: 1/25
-  description: Reserved for internal loopback in SPBM low bandwidth mode
 - name: 1/26
   label: '26'
   position: 1/26
-  description: Reserved for internal loopback in SPBM low bandwidth mode
 - name: 1/27
   label: '27'
   position: 1/27
-  description: Reserved for internal loopback in SPBM low bandwidth mode
 - name: 1/28
   label: '28'
   position: 1/28
-  description: Supports 1G and 10G optics in non-SPBM mode
 - name: 1/29
   label: '29'
   position: 1/29
-  description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
 - name: 1/30
   label: '30'
   position: 1/30
-  description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
 - name: 1/31
   label: U1
   position: 1/31
-  description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
 - name: 1/32
   label: U2
   position: 1/32
-  description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)

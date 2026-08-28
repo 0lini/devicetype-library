@@ -52,26 +52,6 @@ SERIES_COMMENTS = {
 # Leaf/aggregation platforms model fixed QSFP ports as interfaces (not module-bays).
 DENSE_OPTICAL_PREFIXES = ("7520", "7720", "7830")
 
-
-def sanitize_fe_description(desc: str | None) -> str | None:
-    """Drop Switch Engine stacking references; Fabric Engine does not support stacking."""
-    if not desc:
-        return desc
-    if desc in ("For normal use or for stacking.", "For stacking or as additional SFP+"):
-        return None
-    if desc.startswith("Can be used for stacking in Switch Engine"):
-        return None
-    if desc.startswith("Can be used for stacking or "):
-        return desc[len("Can be used for stacking or ") :]
-    if " Or use for stacking." in desc:
-        cleaned = desc.replace(" Or use for stacking.", "").strip()
-        return cleaned or None
-    if "for stacking or " in desc.lower():
-        idx = desc.lower().find("for stacking or ")
-        return desc[idx + len("for stacking or ") :].strip()
-    return desc
-
-
 SOURCES = sorted(
     p.name
     for p in DT.glob("*.yaml")
@@ -130,42 +110,24 @@ def convert_interface(
             new_iface = {k: v for k, v in iface.items()}
             new_iface["name"] = f"1/{port_num}"
             new_iface["label"] = name
-            if new_iface.get("description"):
-                cleaned = sanitize_fe_description(new_iface["description"])
-                if cleaned:
-                    new_iface["description"] = cleaned
-                else:
-                    del new_iface["description"]
+            new_iface.pop("description", None)
             return new_iface, None
         bay = {
             "name": f"1/{port_num}",
             "label": name,
             "position": f"1/{port_num}",
         }
-        if iface.get("description"):
-            cleaned = sanitize_fe_description(iface["description"])
-            if cleaned:
-                bay["description"] = cleaned
         return None, bay
 
     if is_numeric_port(name):
         n = int(name)
         if optical_to_module_bay(itype, raw_ifaces, dense_optical):
             bay = {"name": f"1/{n}", "label": str(n), "position": f"1/{n}"}
-            if iface.get("description"):
-                cleaned = sanitize_fe_description(iface["description"])
-                if cleaned:
-                    bay["description"] = cleaned
             return None, bay
         new_iface = {k: v for k, v in iface.items()}
         new_iface["name"] = f"1/{n}"
         new_iface["label"] = str(n)
-        if new_iface.get("description"):
-            cleaned = sanitize_fe_description(new_iface["description"])
-            if cleaned:
-                new_iface["description"] = cleaned
-            else:
-                del new_iface["description"]
+        new_iface.pop("description", None)
         return new_iface, None
 
     return iface, None

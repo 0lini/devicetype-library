@@ -51,10 +51,6 @@ module-bays:
 - name: 1/7
   label: U1
   position: 1/7
-  description: Last SFP+ port; in SPBM high bandwidth mode UNI-NNI and NNI-UNI bandwidth
-    is limited to 1 Gbps
 - name: 1/8
   label: U2
   position: 1/8
-  description: Last SFP+ port; in SPBM high bandwidth mode UNI-NNI and NNI-UNI bandwidth
-    is limited to 1 Gbps
