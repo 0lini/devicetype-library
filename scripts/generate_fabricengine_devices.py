@@ -68,8 +68,38 @@ def is_numeric_port(name: str) -> bool:
     return bool(re.fullmatch(r"\d+", name))
 
 
+def is_sfp_only_chassis(raw_ifaces: list[dict]) -> bool:
+    """True when the chassis has no copper data ports (SFP/SFP+ only)."""
+    for iface in raw_ifaces:
+        name = iface.get("name", "")
+        if name in ("Mgmt", "Management", "U1", "U2"):
+            continue
+        if iface.get("mgmt_only"):
+            continue
+        if iface.get("type") == "1000base-t":
+            return False
+    return True
+
+
+def optical_to_module_bay(itype: str, raw_ifaces: list[dict], dense_optical: bool) -> bool:
+    """Empty cages become module-bays; fixed uplinks stay interfaces."""
+    if dense_optical or itype not in OPTICAL_TYPES:
+        return False
+    if itype == "1000base-x-sfp":
+        # 1G SFP cages on all-SFP models; fixed 1G SFP on hybrid (e.g. 5420M-24W-24S).
+        return is_sfp_only_chassis(raw_ifaces)
+    if itype == "25gbase-x-sfp28":
+        return False
+    if itype == "10gbase-x-sfpp":
+        return True
+    return is_sfp_only_chassis(raw_ifaces)
+
+
 def convert_interface(
-    iface: dict, port_num: int, dense_optical: bool = False
+    iface: dict,
+    port_num: int,
+    raw_ifaces: list[dict],
+    dense_optical: bool = False,
 ) -> tuple[dict | None, dict | None]:
     """Return (interface, module_bay) — one may be None."""
     name = iface["name"]
@@ -92,7 +122,7 @@ def convert_interface(
 
     if is_numeric_port(name):
         n = int(name)
-        if itype in OPTICAL_TYPES and not dense_optical:
+        if optical_to_module_bay(itype, raw_ifaces, dense_optical):
             bay = {"name": f"1/{n}", "label": str(n), "position": f"1/{n}"}
             if iface.get("description"):
                 bay["description"] = iface["description"]
@@ -204,7 +234,9 @@ def convert_device(src: Path) -> dict:
         if iface["name"] in ("Mgmt", "Management"):
             continue
         port_num = int(iface["name"]) if is_numeric_port(iface["name"]) else u_assign.get(iface["name"])
-        new_iface, bay = convert_interface(iface, port_num, dense_optical=dense_optical)
+        new_iface, bay = convert_interface(
+            iface, port_num, raw_ifaces, dense_optical=dense_optical
+        )
         if new_iface:
             interfaces.append(new_iface)
         if bay:
@@ -283,6 +315,7 @@ def write_vim_modules() -> None:
     vim5520 = [
         ("5520-VIM-4X-FabricEngine", "5520-VIM-4X", "4 x 10Gbase-X SFP+ ports (unpopulated)", "10gbase-x-sfpp", 4, 170),
         ("5520-VIM-4XE-FabricEngine", "5520-VIM-4XE", "4 x 1/10Gb SFP+ LRM and MACsec ports (unpopulated)", "10gbase-x-sfpp", 4, 170),
+        ("5520-VIM-4YE-FabricEngine", "5520-VIM-4YE", "4 x 10/25Gbase-X SFP28 ports (unpopulated)", "25gbase-x-sfp28", 4, 210),
     ]
     for model, pn, comment, itype, count, weight in vim5520:
         data = {
@@ -292,7 +325,29 @@ def write_vim_modules() -> None:
             "comments": comment,
             "weight": weight,
             "weight_unit": "g",
-            "interfaces": [{"name": f"2/{i}", "type": itype} for i in range(1, count + 1)],
+            "interfaces": [
+                {"name": f"2/{i}", "label": f"VIM{i}", "type": itype}
+                for i in range(1, count + 1)
+            ],
+        }
+        (MT / f"{pn}-FabricEngine.yaml").write_text(dump_yaml(data))
+
+    vim5720 = [
+        ("5720-VIM-2CE-FabricEngine", "5720-VIM-2CE", "2x 100Gbase-X QSFP28 ports (unpopulated). Fabric Engine VIM slot number is 2.", "100gbase-x-qsfp28", 2, 0.22),
+        ("5720-VIM-6YE-FabricEngine", "5720-VIM-6YE", "6x 1/10/25Gbase-X SFP28 ports (unpopulated). Fabric Engine VIM slot number is 2.", "25gbase-x-sfp28", 6, 0.24),
+    ]
+    for model, pn, comment, itype, count, weight in vim5720:
+        data = {
+            "manufacturer": "Extreme Networks",
+            "model": model,
+            "part_number": pn,
+            "comments": comment,
+            "weight": weight,
+            "weight_unit": "kg",
+            "interfaces": [
+                {"name": f"2/{i}", "label": f"VIM{i}", "type": itype}
+                for i in range(1, count + 1)
+            ],
         }
         (MT / f"{pn}-FabricEngine.yaml").write_text(dump_yaml(data))
 
@@ -310,7 +365,10 @@ def write_vim_modules() -> None:
             "comments": comment,
             "weight": round(weight_g / 1000, 2),
             "weight_unit": "kg",
-            "interfaces": [{"name": f"{{module}}/{i}", "type": itype} for i in range(1, count + 1)],
+            "interfaces": [
+                {"name": f"{{module}}/{i}", "label": str(i), "type": itype}
+                for i in range(1, count + 1)
+            ],
         }
         (MT / f"{pn}-FabricEngine.yaml").write_text(dump_yaml(data))
 

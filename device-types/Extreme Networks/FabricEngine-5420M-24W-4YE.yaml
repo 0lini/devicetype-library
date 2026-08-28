@@ -145,23 +145,23 @@ interfaces:
   poe_mode: pse
   poe_type: type4-ieee802.3bt
   label: '24'
+- name: 1/25
+  type: 25gbase-x-sfp28
+  label: '25'
+- name: 1/26
+  type: 25gbase-x-sfp28
+  label: '26'
+- name: 1/27
+  type: 25gbase-x-sfp28
+  label: '27'
+- name: 1/28
+  type: 25gbase-x-sfp28
+  label: '28'
 module-bays:
 - name: PS#1
   position: '1'
 - name: PS#2
   position: '2'
-- name: 1/25
-  label: '25'
-  position: 1/25
-- name: 1/26
-  label: '26'
-  position: 1/26
-- name: 1/27
-  label: '27'
-  position: 1/27
-- name: 1/28
-  label: '28'
-  position: 1/28
 - name: 1/29
   label: U1
   position: 1/29

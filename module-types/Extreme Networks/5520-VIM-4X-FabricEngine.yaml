@@ -7,10 +7,14 @@ weight: 170
 weight_unit: g
 interfaces:
 - name: 2/1
+  label: VIM1
   type: 10gbase-x-sfpp
 - name: 2/2
+  label: VIM2
   type: 10gbase-x-sfpp
 - name: 2/3
+  label: VIM3
   type: 10gbase-x-sfpp
 - name: 2/4
+  label: VIM4
   type: 10gbase-x-sfpp

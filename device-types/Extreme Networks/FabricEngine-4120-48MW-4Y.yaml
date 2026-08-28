@@ -265,6 +265,18 @@ interfaces:
   poe_mode: pse
   poe_type: type4-ieee802.3bt
   label: '48'
+- name: 1/49
+  type: 25gbase-x-sfp28
+  label: '49'
+- name: 1/50
+  type: 25gbase-x-sfp28
+  label: '50'
+- name: 1/51
+  type: 25gbase-x-sfp28
+  label: '51'
+- name: 1/52
+  type: 25gbase-x-sfp28
+  label: '52'
 power-ports:
 - name: PS#1
   type: iec-60320-c14
@@ -272,18 +284,6 @@ power-ports:
 module-bays:
 - name: PS#2
   position: '2'
-- name: 1/49
-  label: '49'
-  position: 1/49
-- name: 1/50
-  label: '50'
-  position: 1/50
-- name: 1/51
-  label: '51'
-  position: 1/51
-- name: 1/52
-  label: '52'
-  position: 1/52
 - name: 1/53
   label: U1
   position: 1/53

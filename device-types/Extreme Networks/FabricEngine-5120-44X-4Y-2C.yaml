@@ -24,6 +24,14 @@ interfaces:
 - name: Mgmt-vlan
   type: virtual
   mgmt_only: true
+- name: 1/45
+  type: 25gbase-x-sfp28
+  description: For normal use or for stacking.
+  label: '45'
+- name: 1/46
+  type: 25gbase-x-sfp28
+  description: For normal use or for stacking.
+  label: '46'
 module-bays:
 - name: PS#1
   position: '1'
@@ -161,14 +169,6 @@ module-bays:
 - name: 1/44
   label: '44'
   position: 1/44
-- name: 1/45
-  label: '45'
-  position: 1/45
-  description: For normal use or for stacking.
-- name: 1/46
-  label: '46'
-  position: 1/46
-  description: For normal use or for stacking.
 - name: 1/51
   label: U1
   position: 1/51

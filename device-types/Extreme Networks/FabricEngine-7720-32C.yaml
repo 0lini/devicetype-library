@@ -13,13 +13,15 @@ console-ports:
   - name: Console
     type: rj-45
 interfaces:
-  - name: MGMT1
+  - name: Mgmt-oob
     type: 1000base-t
     mgmt_only: true
+    label: MGMT1
     description: Direct to CPU (primary)
-  - name: MGMT2
+  - name: Mgmt-oob-2
     type: 1000base-t
     mgmt_only: true
+    label: MGMT2
     description: CPU and BMC (secondary)
   - name: Mgmt-clip
     type: virtual

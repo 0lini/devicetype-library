@@ -96,19 +96,19 @@ interfaces:
 - name: 1/24
   type: 10gbase-t
   label: '24'
+- name: 1/25
+  type: 25gbase-x-sfp28
+  description: For normal use or for stacking.
+  label: '25'
+- name: 1/26
+  type: 25gbase-x-sfp28
+  description: For normal use or for stacking.
+  label: '26'
 module-bays:
 - name: PS#1
   position: '1'
 - name: PS#2
   position: '2'
-- name: 1/25
-  label: '25'
-  position: 1/25
-  description: For normal use or for stacking.
-- name: 1/26
-  label: '26'
-  position: 1/26
-  description: For normal use or for stacking.
 - name: 1/27
   label: U1
   position: 1/27
