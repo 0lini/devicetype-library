@@ -161,10 +161,14 @@ def normalize_module_bays(bays: list[dict] | None) -> list[dict] | None:
             bay["name"] = "PS#1"
         elif n in ("PSU-2", "PSU2"):
             bay["name"] = "PS#2"
-        elif n == "5520-VIM-4":
+        elif n in ("5520-VIM-4", "VIM"):
             bay["name"] = "VIM"
+            bay["position"] = "2"
         if "position" in bay and bay["position"] is not None:
-            bay["position"] = str(bay["position"])
+            if bay.get("name") == "VIM" and bay["position"] == "VIM":
+                bay["position"] = "2"
+            else:
+                bay["position"] = str(bay["position"])
         out.append(bay)
     return out
 
@@ -326,7 +330,7 @@ def write_vim_modules() -> None:
             "weight": weight,
             "weight_unit": "g",
             "interfaces": [
-                {"name": f"2/{i}", "label": f"VIM{i}", "type": itype}
+                {"name": f"{{module}}/{i}", "label": f"VIM{i}", "type": itype}
                 for i in range(1, count + 1)
             ],
         }
@@ -345,7 +349,7 @@ def write_vim_modules() -> None:
             "weight": weight,
             "weight_unit": "kg",
             "interfaces": [
-                {"name": f"2/{i}", "label": f"VIM{i}", "type": itype}
+                {"name": f"{{module}}/{i}", "label": f"VIM{i}", "type": itype}
                 for i in range(1, count + 1)
             ],
         }

@@ -6,15 +6,15 @@ comments: 4 x 10Gbase-X SFP+ ports (unpopulated)
 weight: 170
 weight_unit: g
 interfaces:
-- name: 2/1
+- name: '{module}/1'
   label: VIM1
   type: 10gbase-x-sfpp
-- name: 2/2
+- name: '{module}/2'
   label: VIM2
   type: 10gbase-x-sfpp
-- name: 2/3
+- name: '{module}/3'
   label: VIM3
   type: 10gbase-x-sfpp
-- name: 2/4
+- name: '{module}/4'
   label: VIM4
   type: 10gbase-x-sfpp

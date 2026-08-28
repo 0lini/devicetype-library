@@ -174,7 +174,7 @@ module-bays:
 - name: PS#2
   position: '2'
 - name: VIM
-  position: VIM
+  position: '2'
 - name: 1/49
   label: U1
   position: 1/49
