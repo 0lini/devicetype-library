@@ -8,13 +8,8 @@ is_full_depth: true
 weight: 17.2
 weight_unit: kg
 airflow: front-to-rear
-comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). 32x100G QSFP28
-  (1/1-1/32) and 8x400G QSFP-DD (1/33-1/40); VIM1/VIM2 slots use 2/x and 3/x respectively.
-  Odd QSFP28 ports support channelization. [7830 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7830-series-data-sheet)
-  | [7830 Series Installation Guide](https://documentation.extremenetworks.com/7830%20Series%20Installation%20Guide/downloads/7830_Series_Installation_Guide.pdf)
-  In SPBM low bandwidth mode, installing 7830-VIM-16CE in VIM2 (slot 3) reserves ports
-  3/13-3/16; installing 7830-VIM-8DE in VIM2 reserves ports 3/7-3/8. Otherwise no
-  VIM ports are reserved.
+comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). [7830 Series
+  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7830-series-data-sheet)
 console-ports:
 - name: Console
   type: rj-45

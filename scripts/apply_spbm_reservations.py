@@ -6,6 +6,7 @@ from pathlib import Path
 
 import yaml
 
+from fabricengine_comments import build_comments
 from fabricengine_spbm import SPBM_4220_HIGH, SPBM_LOOPBACK
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -250,6 +251,14 @@ def main() -> None:
         apply_iface_rules(data, rules)
         path.write_text(dump_yaml(data))
         updated.append(path.name)
+
+    for path in sorted(DT.glob("FabricEngine-*.yaml")):
+        data = yaml.safe_load(path.read_text())
+        part_number = data.get("part_number", "")
+        if part_number:
+            data["comments"] = build_comments(part_number)
+            path.write_text(dump_yaml(data))
+            updated.append(path.name)
 
     print(f"Updated {len(set(updated))} files")
 

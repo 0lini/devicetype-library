@@ -7,6 +7,8 @@ from pathlib import Path
 
 import yaml
 
+from fabricengine_comments import build_comments
+
 ROOT = Path(__file__).resolve().parents[1]
 DT = ROOT / "device-types" / "Extreme Networks"
 MT = ROOT / "module-types" / "Extreme Networks"
@@ -20,33 +22,6 @@ OPTICAL_TYPES = {
     "400gbase-x-qsfpdd",
     "400gbase-x-qsfp56",
     "100gbase-x-sfp56",
-}
-
-SERIES_COMMENTS = {
-    "5420": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-        "[5420 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5420-Series-Data-Sheet)"
-    ),
-    "5520": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs and VIM slot. "
-        "[5520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5520-Series-Data-Sheet)"
-    ),
-    "5120": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs. "
-        "[5120 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5120-Series-Data-Sheet)"
-    ),
-    "4120": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet)"
-    ),
-    "4220": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet)"
-    ),
-    "7520": (
-        "Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs. "
-        "[7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7520-Series-Data-Sheet)"
-    ),
 }
 
 # Leaf/aggregation platforms model fixed QSFP ports as interfaces (not module-bays).
@@ -205,12 +180,7 @@ def convert_device(src: Path) -> dict:
     out["model"] = fe_model
     out["part_number"] = model
     out["slug"] = slugify(model)
-    prefix = re.match(r"^(5420[A-Z]?|5520|5120|4120|4220|7520)", model).group(1)
-    if prefix.startswith("5420"):
-        prefix = "5420"
-    out["comments"] = SERIES_COMMENTS.get(
-        prefix, "Dual-persona Universal Hardware running Fabric Engine (VOSS)."
-    )
+    out["comments"] = build_comments(model)
     dense_optical = model.startswith(DENSE_OPTICAL_PREFIXES)
 
     out["console-ports"] = normalize_console(data.get("console-ports"))
@@ -276,13 +246,7 @@ def write_7830_chassis() -> None:
         "weight": 17.2,
         "weight_unit": "kg",
         "airflow": "front-to-rear",
-        "comments": (
-            "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-            "32x100G QSFP28 (1/1-1/32) and 8x400G QSFP-DD (1/33-1/40); VIM1/VIM2 slots use "
-            "2/x and 3/x respectively. Odd QSFP28 ports support channelization. "
-            "[7830 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7830-series-data-sheet) | "
-            "[7830 Series Installation Guide](https://documentation.extremenetworks.com/7830%20Series%20Installation%20Guide/downloads/7830_Series_Installation_Guide.pdf)"
-        ),
+        "comments": build_comments("7830-32CE-8DE"),
         "console-ports": [{"name": "Console", "type": "rj-45"}],
         "interfaces": [
             {"name": "Mgmt-oob", "type": "1000base-t", "mgmt_only": True, "description": "100M/1G/10G RJ-45 OOB"},

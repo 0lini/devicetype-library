@@ -8,10 +8,8 @@ is_full_depth: false
 weight: 3.0
 weight_unit: kg
 airflow: left-to-right
-comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). Future Fabric
-  Engine release. 16 PoE copper and 4 SFP+ ports; all ports support MACsec. AC power.
-  [5320 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet)
-  | [5320 Series Installation Guide](https://documentation.extremenetworks.com/5320%20Series%20Installation%20Guide/downloads/5320_Series_Installation_Guide.pdf)
+comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). [5320 Series
+  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet)
 power-ports:
 - name: PS#1
   type: iec-60320-c14
