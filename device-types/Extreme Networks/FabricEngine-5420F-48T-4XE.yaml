@@ -12,11 +12,14 @@ comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). [5420 Se
   Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5420-Series-Data-Sheet)
 console-ports:
 - name: Console
+  label: 'CONSOLE'
   type: rj-45
 - name: USB console
+  label: 'CONSOLE'
   type: usb-micro-b
 interfaces:
 - name: Mgmt-oob
+  label: 'MGMT'
   type: 1000base-t
   mgmt_only: true
 - name: Mgmt-clip
@@ -175,7 +178,8 @@ power-ports:
   maximum_draw: 75
 module-bays:
 - name: PS#2
-  position: '1'
+  label: 'PSU2'
+  position: 'PS#2'
 - name: 1/49
   label: '49'
   position: 1/49
