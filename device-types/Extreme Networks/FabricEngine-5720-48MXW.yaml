@@ -9,9 +9,9 @@ weight: 8.55
 weight_unit: kg
 airflow: front-to-rear
 comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs
-  and VIM slot; Universal Ethernet ports 1/49 and 1/50 are QSFP28 cages. LRM/MACsec Adapter
-  is an external accessory for use with 5720-VIM-6YE SFP28 ports (not a chassis module-bay).
-  [5720 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5720-Series-Data-Sheet?v=25a4737c)
+  and VIM slot; Universal Ethernet ports 1/49 and 1/50 are QSFP28 cages. LRM/MACsec
+  Adapter is an external accessory for use with 5720-VIM-6YE SFP28 ports (not a chassis
+  module-bay). [5720 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5720-Series-Data-Sheet?v=25a4737c)
   | [5720 Series Installation Guide](https://documentation.extremenetworks.com/5720%20Series%20Installation%20Guide/downloads/5720_Series_Installation_Guide.pdf)
 console-ports:
 - name: Console
@@ -278,12 +278,12 @@ module-bays:
   description: VIM slot reserved for internal loopback in SPBM high/vim bandwidth
     mode
 - name: 1/49
-  label: '49'
+  label: U1
   position: 1/49
   description: Universal Ethernet port; reserved for internal loopback in SPBM high/vim
     bandwidth mode
 - name: 1/50
-  label: '50'
+  label: U2
   position: 1/50
   description: Universal Ethernet port; reserved for internal loopback in SPBM high/vim
     bandwidth mode

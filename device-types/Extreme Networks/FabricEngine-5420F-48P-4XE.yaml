@@ -285,12 +285,12 @@ module-bays:
   label: '52'
   position: 1/52
 - name: 1/53
-  label: '53'
+  label: U1
   position: 1/53
   description: Universal Ethernet port; reserved for internal loopback in SPBM low
     bandwidth mode
 - name: 1/54
-  label: '54'
+  label: U2
   position: 1/54
   description: Universal Ethernet port; reserved for internal loopback in SPBM low
     bandwidth mode

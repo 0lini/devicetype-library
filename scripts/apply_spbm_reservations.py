@@ -50,16 +50,16 @@ RULES: dict[str, dict[str, tuple[str | None, str | None]]] = {
     },
     # 4220 - last 2 SFP+ only
     "4220-8X": {
-        "1/7": ("7", SPBM_4220_SFP),
-        "1/8": ("8", SPBM_4220_SFP),
+        "1/7": ("U1", SPBM_4220_SFP),
+        "1/8": ("U2", SPBM_4220_SFP),
     },
     "4220-4MW-8P-4X": {
-        "1/15": ("15", SPBM_4220_SFP),
-        "1/16": ("16", SPBM_4220_SFP),
+        "1/15": ("U1", SPBM_4220_SFP),
+        "1/16": ("U2", SPBM_4220_SFP),
     },
     "4220-4MW-20P-4X": {
-        "1/27": ("27", SPBM_4220_SFP),
-        "1/28": ("28", SPBM_4220_SFP),
+        "1/27": ("U1", SPBM_4220_SFP),
+        "1/28": ("U2", SPBM_4220_SFP),
     },
 }
 
@@ -73,8 +73,8 @@ PORT24_5420 = [
 ]
 for m in PORT24_5420:
     RULES[m] = {
-        "1/29": ("29", SPBM_UE_LOW),
-        "1/30": ("30", SPBM_UE_LOW),
+        "1/29": ("U1", SPBM_UE_LOW),
+        "1/30": ("U2", SPBM_UE_LOW),
     }
 
 PORT48_5420 = [
@@ -90,39 +90,47 @@ PORT48_5420 = [
 ]
 for m in PORT48_5420:
     RULES[m] = {
-        "1/53": ("53", SPBM_UE_LOW),
-        "1/54": ("54", SPBM_UE_LOW),
+        "1/53": ("U1", SPBM_UE_LOW),
+        "1/54": ("U2", SPBM_UE_LOW),
     }
 
 PORT24_5520 = ["5520-24T", "5520-24W", "5520-24X"]
 for m in PORT24_5520:
     RULES[m] = {
-        "1/25": ("25", SPBM_UE_LOW),
-        "1/26": ("26", SPBM_UE_LOW),
+        "1/25": ("U1", SPBM_UE_LOW),
+        "1/26": ("U2", SPBM_UE_LOW),
         "VIM": (None, SPBM_VIM),
     }
 
 PORT48_5520 = ["5520-12MW-36W", "5520-48SE", "5520-48T", "5520-48W"]
 for m in PORT48_5520:
     RULES[m] = {
-        "1/49": ("49", SPBM_UE_LOW),
-        "1/50": ("50", SPBM_UE_LOW),
+        "1/49": ("U1", SPBM_UE_LOW),
+        "1/50": ("U2", SPBM_UE_LOW),
         "VIM": (None, SPBM_VIM),
     }
 
 RULES["5720-24MW"] = {
-    "1/25": ("25", None),
-    "1/26": ("26", None),
+    "1/25": ("U1", None),
+    "1/26": ("U2", None),
     "VIM": (None, SPBM_VIM_HIGH),
 }
 RULES["5720-24MXW"] = RULES["5720-24MW"].copy()
 
 RULES["5720-48MW"] = {
-    "1/49": ("49", SPBM_UE_HIGH),
-    "1/50": ("50", SPBM_UE_HIGH),
+    "1/49": ("U1", SPBM_UE_HIGH),
+    "1/50": ("U2", SPBM_UE_HIGH),
     "VIM": (None, SPBM_VIM_HIGH),
 }
 RULES["5720-48MXW"] = RULES["5720-48MW"].copy()
+
+# 5320 8XE / 4XE Universal Ethernet faceplate labels (not SPBM-reserved on 16P)
+for m in ("5320-24P-8XE", "5320-24T-8XE"):
+    RULES.setdefault(m, {}).update({"1/31": ("U1", None), "1/32": ("U2", None)})
+for m in ("5320-48P-8XE", "5320-48T-8XE"):
+    RULES.setdefault(m, {}).update({"1/55": ("U1", None), "1/56": ("U2", None)})
+for m in ("5320-16P-4XE", "5320-16P-4XE-DC"):
+    RULES.setdefault(m, {}).update({"1/19": ("U1", None), "1/20": ("U2", None)})
 
 IFACE_RULES: dict[str, dict[str, str]] = {
     "7520-48XT-6C": {

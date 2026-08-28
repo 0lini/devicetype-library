@@ -203,10 +203,10 @@ module-bays:
   position: 1/54
   description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
 - name: 1/55
-  label: '55'
+  label: U1
   position: 1/55
   description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
 - name: 1/56
-  label: '56'
+  label: U2
   position: 1/56
   description: Supports 100M, 1G, and 10G optics (1G and 10G in non-SPBM mode)
