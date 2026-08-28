@@ -6,12 +6,12 @@ part_number: RPS-150W-XT
 u_height: 1
 is_full_depth: false
 airflow: front-to-rear
-comments: '150W external redundant AC power supply (extended temperature, front-to-back airflow). Compatible with FabricEngine-5320-24T-4X-XT and FabricEngine-5320-24T-24S-4XE-XT. Connect RPS-CBL between switch PS#2 and RPS output before applying AC power. [5320 Series Installation Guide — External RPS](https://documentation.extremenetworks.com/5320%20Series%20Installation%20Guide/Universal_Hardware/Universal_Hardware_Common/topics/redundant_power_supply_for_use_with_your_switch.shtml) | [RPS Quick Reference](https://documentation.extremenetworks.com/HW_QRG/RPS_QuickReference.pdf)'
+comments: '150W external redundant AC power supply (extended temperature, front-to-back airflow). Compatible with FabricEngine-5320-24T-4X-XT and FabricEngine-5320-24T-24S-4XE-XT. Connect RPS-CBL between switch PS#2 and RPS output before applying AC power. [5320 Series Installation Guide - External RPS](https://documentation.extremenetworks.com/5320%20Series%20Installation%20Guide/Universal_Hardware/Universal_Hardware_Common/topics/redundant_power_supply_for_use_with_your_switch.shtml) | [RPS Quick Reference](https://documentation.extremenetworks.com/HW_QRG/RPS_QuickReference.pdf)'
 power-ports:
   - name: PS#1
     type: iec-60320-c14
     maximum_draw: 150
-    description: 100–240 Vac, 50–60 Hz input
+    description: 100-240 Vac, 50-60 Hz input
 power-outlets:
   - name: RPS-OUT
     type: dc-terminal
