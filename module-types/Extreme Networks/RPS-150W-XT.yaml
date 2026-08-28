@@ -1,0 +1,12 @@
+---
+manufacturer: Extreme Networks
+model: RPS-150W-XT
+part_number: RPS-150W-XT
+comments: 150W external redundant AC power supply (extended temperature, front-to-back
+  airflow). Connect RPS-CBL between RPS-OUT and switch before applying AC power.
+airflow: front-to-rear
+power-ports:
+- name: PS#{module}
+  type: iec-60320-c14
+  maximum_draw: 150
+  description: 100-240 Vac, 50-60 Hz input
