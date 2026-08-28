@@ -156,8 +156,10 @@ module-bays:
 - name: 1/25
   label: U1
   position: 1/25
+  description: Reserved for internal loopback in SPBM mode
 - name: 1/26
   label: U2
   position: 1/26
+  description: Reserved for internal loopback in SPBM mode
 - name: SSD
   position: SSD
