@@ -2,7 +2,7 @@
 manufacturer: Extreme Networks
 model: XN-DCPWR-800W-R
 part_number: XN-DCPWR-800W-R
-comments: '800W DC PSU, back-to-front airflow (terminal block). Compatible with 7520 and 7720 Series. [7720 Series Installation Guide](https://documentation.extremenetworks.com/7720%20Series%20Installation%20Guide/downloads/7720_Series_Installation_Guide.pdf)'
+comments: 800W DC PSU, back-to-front airflow (terminal block). Compatible with 7520 and 7720 Series.
 weight: 0.85
 weight_unit: kg
 airflow: rear-to-front
