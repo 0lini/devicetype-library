@@ -155,6 +155,8 @@ module-bays:
   position: '2'
 - name: VIM
   position: '2'
+  description: VIM slot reserved for internal loopback in SPBM high/vim bandwidth
+    mode. Vim mode uses less internal bandwidth speed than high mode.
 - name: 1/25
   label: U1
   position: 1/25

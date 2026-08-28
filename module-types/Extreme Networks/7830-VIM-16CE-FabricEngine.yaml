@@ -45,12 +45,20 @@ interfaces:
 - name: '{module}/13'
   label: '13'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
+    in VIM2 (slot 3)
 - name: '{module}/14'
   label: '14'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
+    in VIM2 (slot 3)
 - name: '{module}/15'
   label: '15'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
+    in VIM2 (slot 3)
 - name: '{module}/16'
   label: '16'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
+    in VIM2 (slot 3)

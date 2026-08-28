@@ -122,15 +122,22 @@ interfaces:
 - name: 1/29
   label: '29'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM high bandwidth mode (VXLAN Full
+    Interworking Mode enabled)
 - name: 1/30
   label: '30'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM high bandwidth mode
 - name: 1/31
   label: '31'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode and SPBM
+    high bandwidth mode
 - name: 1/32
   label: '32'
   type: 100gbase-x-qsfp28
+  description: Reserved for internal loopback in SPBM low bandwidth mode and SPBM
+    high bandwidth mode
 module-bays:
 - name: PS#1
   position: '1'

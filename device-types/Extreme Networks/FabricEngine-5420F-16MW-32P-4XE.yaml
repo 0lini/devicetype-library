@@ -287,6 +287,12 @@ module-bays:
 - name: 1/53
   label: U1
   position: 1/53
+  description: Reserved for internal loopback in SPBM low bandwidth mode (Universal
+    Ethernet port). See 5420 Series documentation for restrictions on using reserved
+    loopback ports as front-panel ports.
 - name: 1/54
   label: U2
   position: 1/54
+  description: Reserved for internal loopback in SPBM low bandwidth mode (Universal
+    Ethernet port). See 5420 Series documentation for restrictions on using reserved
+    loopback ports as front-panel ports.
