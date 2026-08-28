@@ -17,11 +17,9 @@ console-ports:
     label: CONSOLE
     type: usb-micro-b
 power-ports:
-  # TODO: Check the label and in OS naming convention
   - name: PS#1
     label: PSU1
     type: iec-60320-c14
-  # TODO: Check the label and in OS naming convention
 interfaces:
   - name: Mgmt-oob
     label: MGMT

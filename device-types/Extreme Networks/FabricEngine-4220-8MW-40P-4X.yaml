@@ -21,10 +21,6 @@ power-ports:
     type: iec-60320-c14
     maximum_draw: 950
     description: Fixed power supply
-  - name: PS#2
-    type: dc-terminal
-    maximum_draw: 950
-    description: Redundant power supply
 interfaces:
   - name: Mgmt-oob
     label: MGMT
@@ -277,6 +273,8 @@ interfaces:
     poe_mode: pse
     poe_type: type4-ieee802.3bt
 module-bays:
+  - name: PS#2
+    position: '2'
   - name: 1/49
     label: '49'
     position: 1/49

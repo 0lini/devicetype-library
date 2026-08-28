@@ -14,7 +14,6 @@ console-ports:
     label: CONSOLE
     type: rj-45
 interfaces:
-  # TODO: Verity Name of interface
   - name: Mgmt-oob1
     label: MGMT 10GT
     type: 10gbase-t
@@ -32,13 +31,10 @@ module-bays:
   - name: PS#2
     label: PSU2
     position: PS#2
-  # TODO: Verity Name of module bay
   - name: VIM1
     position: '2'
-  # TODO: Verity Name of module bay
   - name: VIM2
     position: '3'
-  # TODO: Verity Name of module bay
   - name: Mgmt-oobe2
     label: MGMT SFP+
     position: Mgmt-oobe2
