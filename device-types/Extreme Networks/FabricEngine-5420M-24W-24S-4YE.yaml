@@ -1,13 +1,13 @@
 ---
 manufacturer: Extreme Networks
-part_number: 5420F-48T-4XE
+part_number: 5420M-24W-24S-4YE
 u_height: 1
 is_full_depth: false
-weight: 4.64
+weight: 4.47
 weight_unit: kg
 airflow: front-to-rear
-model: FabricEngine-5420F-48T-4XE
-slug: extreme-networks-fabricengine-5420f-48t-4xe
+model: FabricEngine-5420M-24W-24S-4YE
+slug: extreme-networks-fabricengine-5420m-24w-24s-4ye
 comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). [5420 Series
   Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5420-Series-Data-Sheet)
 console-ports:
@@ -27,155 +27,201 @@ interfaces:
   mgmt_only: true
 - name: 1/1
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '1'
 - name: 1/2
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '2'
 - name: 1/3
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '3'
 - name: 1/4
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '4'
 - name: 1/5
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '5'
 - name: 1/6
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '6'
 - name: 1/7
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '7'
 - name: 1/8
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '8'
 - name: 1/9
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '9'
 - name: 1/10
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '10'
 - name: 1/11
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '11'
 - name: 1/12
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '12'
 - name: 1/13
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '13'
 - name: 1/14
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '14'
 - name: 1/15
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '15'
 - name: 1/16
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '16'
 - name: 1/17
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '17'
 - name: 1/18
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '18'
 - name: 1/19
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '19'
 - name: 1/20
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '20'
 - name: 1/21
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '21'
 - name: 1/22
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '22'
 - name: 1/23
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '23'
 - name: 1/24
   type: 1000base-t
+  poe_mode: pse
+  poe_type: type4-ieee802.3bt
   label: '24'
-- name: 1/25
-  type: 1000base-t
-  label: '25'
-- name: 1/26
-  type: 1000base-t
-  label: '26'
-- name: 1/27
-  type: 1000base-t
-  label: '27'
-- name: 1/28
-  type: 1000base-t
-  label: '28'
-- name: 1/29
-  type: 1000base-t
-  label: '29'
-- name: 1/30
-  type: 1000base-t
-  label: '30'
-- name: 1/31
-  type: 1000base-t
-  label: '31'
-- name: 1/32
-  type: 1000base-t
-  label: '32'
-- name: 1/33
-  type: 1000base-t
-  label: '33'
-- name: 1/34
-  type: 1000base-t
-  label: '34'
-- name: 1/35
-  type: 1000base-t
-  label: '35'
-- name: 1/36
-  type: 1000base-t
-  label: '36'
-- name: 1/37
-  type: 1000base-t
-  label: '37'
-- name: 1/38
-  type: 1000base-t
-  label: '38'
-- name: 1/39
-  type: 1000base-t
-  label: '39'
-- name: 1/40
-  type: 1000base-t
-  label: '40'
-- name: 1/41
-  type: 1000base-t
-  label: '41'
-- name: 1/42
-  type: 1000base-t
-  label: '42'
-- name: 1/43
-  type: 1000base-t
-  label: '43'
-- name: 1/44
-  type: 1000base-t
-  label: '44'
-- name: 1/45
-  type: 1000base-t
-  label: '45'
-- name: 1/46
-  type: 1000base-t
-  label: '46'
-- name: 1/47
-  type: 1000base-t
-  label: '47'
-- name: 1/48
-  type: 1000base-t
-  label: '48'
-power-ports:
-- name: PS#1
-  type: iec-60320-c14
-  maximum_draw: 75
 module-bays:
-- name: PS#2
+- name: PS#1
   position: '1'
+- name: PS#2
+  position: '2'
+- name: 1/25
+  label: '25'
+  position: 1/25
+- name: 1/26
+  label: '26'
+  position: 1/26
+- name: 1/27
+  label: '27'
+  position: 1/27
+- name: 1/28
+  label: '28'
+  position: 1/28
+- name: 1/29
+  label: '29'
+  position: 1/29
+- name: 1/30
+  label: '30'
+  position: 1/30
+- name: 1/31
+  label: '31'
+  position: 1/31
+- name: 1/32
+  label: '32'
+  position: 1/32
+- name: 1/33
+  label: '33'
+  position: 1/33
+- name: 1/34
+  label: '34'
+  position: 1/34
+- name: 1/35
+  label: '35'
+  position: 1/35
+- name: 1/36
+  label: '36'
+  position: 1/36
+- name: 1/37
+  label: '37'
+  position: 1/37
+- name: 1/38
+  label: '38'
+  position: 1/38
+- name: 1/39
+  label: '39'
+  position: 1/39
+- name: 1/40
+  label: '40'
+  position: 1/40
+- name: 1/41
+  label: '41'
+  position: 1/41
+- name: 1/42
+  label: '42'
+  position: 1/42
+- name: 1/43
+  label: '43'
+  position: 1/43
+- name: 1/44
+  label: '44'
+  position: 1/44
+- name: 1/45
+  label: '45'
+  position: 1/45
+- name: 1/46
+  label: '46'
+  position: 1/46
+- name: 1/47
+  label: '47'
+  position: 1/47
+- name: 1/48
+  label: '48'
+  position: 1/48
 - name: 1/49
   label: '49'
   position: 1/49
@@ -191,8 +237,8 @@ module-bays:
 - name: 1/53
   label: U1
   position: 1/53
-  description: Can be used for stacking or 10Gb ethernet
+  description: Can be used for stacking or 2x 10Gb ethernet
 - name: 1/54
   label: U2
   position: 1/54
-  description: Can be used for stacking or 10Gb ethernet
+  description: Can be used for stacking or 2x 10Gb ethernet

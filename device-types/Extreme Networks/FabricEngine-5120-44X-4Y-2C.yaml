@@ -1,11 +1,10 @@
+---
 manufacturer: Extreme Networks
 part_number: 5120-44X-4Y-2C
 u_height: 1
 is_full_depth: true
 weight: 6.09
 weight_unit: kg
-front_image: true
-rear_image: true
 model: FabricEngine-5120-44X-4Y-2C
 slug: extreme-networks-fabricengine-5120-44x-4y-2c
 comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs.

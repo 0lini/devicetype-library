@@ -43,12 +43,19 @@ SERIES_COMMENTS = {
         "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
         "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet?v=bb9ebc88)"
     ),
+    "7520": (
+        "Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs. "
+        "[7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=9df9bc2b)"
+    ),
 }
+
+# Leaf/aggregation platforms model fixed QSFP ports as interfaces (not module-bays).
+DENSE_OPTICAL_PREFIXES = ("7520", "7720", "7830")
 
 SOURCES = sorted(
     p.name
     for p in DT.glob("*.yaml")
-    if re.match(r"^(5420[A-Z]?|5520|5120|4120|4220)-", p.name)
+    if re.match(r"^(5420[A-Z]?|5520|5120|4120|4220|7520)-", p.name)
     and "FabricEngine" not in p.name
 )
 
@@ -61,12 +68,19 @@ def is_numeric_port(name: str) -> bool:
     return bool(re.fullmatch(r"\d+", name))
 
 
-def convert_interface(iface: dict, port_num: int) -> tuple[dict | None, dict | None]:
+def convert_interface(
+    iface: dict, port_num: int, dense_optical: bool = False
+) -> tuple[dict | None, dict | None]:
     """Return (interface, module_bay) — one may be None."""
     name = iface["name"]
     itype = iface.get("type", "")
 
     if name in ("U1", "U2"):
+        if dense_optical:
+            new_iface = {k: v for k, v in iface.items()}
+            new_iface["name"] = f"1/{port_num}"
+            new_iface["label"] = name
+            return new_iface, None
         bay = {
             "name": f"1/{port_num}",
             "label": name,
@@ -78,7 +92,7 @@ def convert_interface(iface: dict, port_num: int) -> tuple[dict | None, dict | N
 
     if is_numeric_port(name):
         n = int(name)
-        if itype in OPTICAL_TYPES:
+        if itype in OPTICAL_TYPES and not dense_optical:
             bay = {"name": f"1/{n}", "label": str(n), "position": f"1/{n}"}
             if iface.get("description"):
                 bay["description"] = iface["description"]
@@ -146,7 +160,10 @@ def convert_device(src: Path) -> dict:
     model = data["model"]
 
     out: dict = {}
-    skip_keys = {"model", "slug", "interfaces", "module-bays", "power-ports", "console-ports", "comments"}
+    skip_keys = {
+        "model", "slug", "interfaces", "module-bays", "power-ports", "console-ports",
+        "comments", "front_image", "rear_image",
+    }
     for k, v in data.items():
         if k not in skip_keys:
             out[k] = v
@@ -156,12 +173,13 @@ def convert_device(src: Path) -> dict:
     out["model"] = fe_model
     out["part_number"] = model
     out["slug"] = slugify(model)
-    prefix = re.match(r"^(5420[A-Z]?|5520|5120|4120|4220)", model).group(1)
+    prefix = re.match(r"^(5420[A-Z]?|5520|5120|4120|4220|7520)", model).group(1)
     if prefix.startswith("5420"):
         prefix = "5420"
     out["comments"] = SERIES_COMMENTS.get(
         prefix, "Dual-persona Universal Hardware running Fabric Engine (VOSS)."
     )
+    dense_optical = model.startswith(DENSE_OPTICAL_PREFIXES)
 
     out["console-ports"] = normalize_console(data.get("console-ports"))
 
@@ -176,17 +194,17 @@ def convert_device(src: Path) -> dict:
     module_bays = list(normalize_module_bays(data.get("module-bays")) or [])
 
     for iface in raw_ifaces:
-        if iface["name"] == "Mgmt":
+        if iface["name"] in ("Mgmt", "Management"):
             continue
         if iface["name"] in u_assign:
             max_port += 1
             u_assign[iface["name"]] = max_port
 
     for iface in raw_ifaces:
-        if iface["name"] == "Mgmt":
+        if iface["name"] in ("Mgmt", "Management"):
             continue
         port_num = int(iface["name"]) if is_numeric_port(iface["name"]) else u_assign.get(iface["name"])
-        new_iface, bay = convert_interface(iface, port_num)
+        new_iface, bay = convert_interface(iface, port_num, dense_optical=dense_optical)
         if new_iface:
             interfaces.append(new_iface)
         if bay:
@@ -282,7 +300,7 @@ def write_vim_modules() -> None:
         ("7830-VIM-24YE", "24 x 10/25G SFP28 ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.", "25gbase-x-sfp28", 24, 1360),
         ("7830-VIM-16CE", "16 x 100G QSFP28 ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.", "100gbase-x-qsfp28", 16, 1910),
         ("7830-VIM-8DE", "8 x 400G QSFP-DD ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.", "400gbase-x-qsfpdd", 8, 1650),
-        ("7830-VIM-24CE", "24 x 100G SFP56-DD ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.", "100gbase-x-sfp56", 24, 1650),
+        ("7830-VIM-24CE", "24 x 100G SFP56-DD ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.", "100gbase-x-sfpdd", 24, 1650),
     ]
     for pn, comment, itype, count, weight_g in vim7830_specs:
         data = {
