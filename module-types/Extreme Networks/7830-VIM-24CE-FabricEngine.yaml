@@ -1,0 +1,55 @@
+manufacturer: Extreme Networks
+model: 7830-VIM-24CE-FabricEngine
+part_number: 7830-VIM-24CE
+comments: 24 x 100G SFP56-DD ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.
+weight: 1.65
+weight_unit: kg
+interfaces:
+- name: '{module}/1'
+  type: 100gbase-x-sfp56
+- name: '{module}/2'
+  type: 100gbase-x-sfp56
+- name: '{module}/3'
+  type: 100gbase-x-sfp56
+- name: '{module}/4'
+  type: 100gbase-x-sfp56
+- name: '{module}/5'
+  type: 100gbase-x-sfp56
+- name: '{module}/6'
+  type: 100gbase-x-sfp56
+- name: '{module}/7'
+  type: 100gbase-x-sfp56
+- name: '{module}/8'
+  type: 100gbase-x-sfp56
+- name: '{module}/9'
+  type: 100gbase-x-sfp56
+- name: '{module}/10'
+  type: 100gbase-x-sfp56
+- name: '{module}/11'
+  type: 100gbase-x-sfp56
+- name: '{module}/12'
+  type: 100gbase-x-sfp56
+- name: '{module}/13'
+  type: 100gbase-x-sfp56
+- name: '{module}/14'
+  type: 100gbase-x-sfp56
+- name: '{module}/15'
+  type: 100gbase-x-sfp56
+- name: '{module}/16'
+  type: 100gbase-x-sfp56
+- name: '{module}/17'
+  type: 100gbase-x-sfp56
+- name: '{module}/18'
+  type: 100gbase-x-sfp56
+- name: '{module}/19'
+  type: 100gbase-x-sfp56
+- name: '{module}/20'
+  type: 100gbase-x-sfp56
+- name: '{module}/21'
+  type: 100gbase-x-sfp56
+- name: '{module}/22'
+  type: 100gbase-x-sfp56
+- name: '{module}/23'
+  type: 100gbase-x-sfp56
+- name: '{module}/24'
+  type: 100gbase-x-sfp56

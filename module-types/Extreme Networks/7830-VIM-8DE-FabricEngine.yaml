@@ -1,0 +1,23 @@
+manufacturer: Extreme Networks
+model: 7830-VIM-8DE-FabricEngine
+part_number: 7830-VIM-8DE
+comments: 8 x 400G QSFP-DD ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.
+weight: 1.65
+weight_unit: kg
+interfaces:
+- name: '{module}/1'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/2'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/3'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/4'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/5'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/6'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/7'
+  type: 400gbase-x-qsfpdd
+- name: '{module}/8'
+  type: 400gbase-x-qsfpdd

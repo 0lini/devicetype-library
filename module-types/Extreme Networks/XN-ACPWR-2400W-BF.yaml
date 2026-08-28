@@ -1,0 +1,11 @@
+manufacturer: Extreme Networks
+model: XN-ACPWR-2400W-BF
+part_number: XN-ACPWR-2400W-BF
+comments: 2400W AC PSU, back-to-front (C20 inlet). 7830 Series.
+weight: 0.93
+weight_unit: kg
+airflow: rear-to-front
+power-ports:
+- name: PS#{module}
+  type: iec-60320-c20
+  maximum_draw: 2400

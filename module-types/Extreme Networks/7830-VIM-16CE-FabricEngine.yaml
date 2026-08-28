@@ -1,0 +1,39 @@
+manufacturer: Extreme Networks
+model: 7830-VIM-16CE-FabricEngine
+part_number: 7830-VIM-16CE
+comments: 16 x 100G QSFP28 ports (unpopulated). Use VIM1 (2/x) or VIM2 (3/x) bay.
+weight: 1.91
+weight_unit: kg
+interfaces:
+- name: '{module}/1'
+  type: 100gbase-x-qsfp28
+- name: '{module}/2'
+  type: 100gbase-x-qsfp28
+- name: '{module}/3'
+  type: 100gbase-x-qsfp28
+- name: '{module}/4'
+  type: 100gbase-x-qsfp28
+- name: '{module}/5'
+  type: 100gbase-x-qsfp28
+- name: '{module}/6'
+  type: 100gbase-x-qsfp28
+- name: '{module}/7'
+  type: 100gbase-x-qsfp28
+- name: '{module}/8'
+  type: 100gbase-x-qsfp28
+- name: '{module}/9'
+  type: 100gbase-x-qsfp28
+- name: '{module}/10'
+  type: 100gbase-x-qsfp28
+- name: '{module}/11'
+  type: 100gbase-x-qsfp28
+- name: '{module}/12'
+  type: 100gbase-x-qsfp28
+- name: '{module}/13'
+  type: 100gbase-x-qsfp28
+- name: '{module}/14'
+  type: 100gbase-x-qsfp28
+- name: '{module}/15'
+  type: 100gbase-x-qsfp28
+- name: '{module}/16'
+  type: 100gbase-x-qsfp28
