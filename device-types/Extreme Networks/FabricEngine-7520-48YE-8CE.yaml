@@ -8,7 +8,7 @@ is_full_depth: true
 model: FabricEngine-7520-48YE-8CE
 slug: extreme-networks-fabricengine-7520-48ye-8ce
 comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs.
-  [7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=9df9bc2b)
+  [7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7520-Series-Data-Sheet)
 console-ports:
 - name: Console
   type: rj-45

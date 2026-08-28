@@ -12,7 +12,7 @@ comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular 
   PSUs and six hot-swappable fan modules (ordered separately on base SKU; AC-F/AC-R
   bundles include fans and PSUs with matching airflow). Ports 1-27 and 29-32 support
   channelization (4x25G / 4x10G / 1x40G / 1x100G); port 28 is 40/100G only. Internal
-  IAH Insight ports 1/s1 and 1/s2 are not modeled. [7720 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/a7b2d7f8cf024e12af4ccf0284ac5359?v=41536a67)
+  IAH Insight ports 1/s1 and 1/s2 are not modeled. [7720 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7720-Series-Data-Sheet)
   | [7720 Series Installation Guide](https://documentation.extremenetworks.com/7720%20Series%20Installation%20Guide/downloads/7720_Series_Installation_Guide.pdf)
 console-ports:
 - name: Console

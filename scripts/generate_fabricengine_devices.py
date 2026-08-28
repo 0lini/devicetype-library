@@ -37,15 +37,15 @@ SERIES_COMMENTS = {
     ),
     "4120": (
         "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet?v=bb9ebc88)"
+        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet)"
     ),
     "4220": (
         "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
-        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet?v=bb9ebc88)"
+        "[4000 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet)"
     ),
     "7520": (
         "Dual-persona Universal Hardware running Fabric Engine (VOSS). Modular PSUs. "
-        "[7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=9df9bc2b)"
+        "[7520 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7520-Series-Data-Sheet)"
     ),
 }
 
@@ -282,7 +282,7 @@ def write_7830_chassis() -> None:
             "Dual-persona Universal Hardware running Fabric Engine (VOSS). "
             "32x100G QSFP28 (1/1-1/32) and 8x400G QSFP-DD (1/33-1/40); VIM1/VIM2 slots use "
             "2/x and 3/x respectively. Odd QSFP28 ports support channelization. "
-            "[7830 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7830-series-data-sheet?v=7ba08e6a) | "
+            "[7830 Series Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7830-series-data-sheet) | "
             "[7830 Series Installation Guide](https://documentation.extremenetworks.com/7830%20Series%20Installation%20Guide/downloads/7830_Series_Installation_Guide.pdf)"
         ),
         "console-ports": [{"name": "Console", "type": "rj-45"}],

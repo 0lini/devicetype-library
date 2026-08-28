@@ -9,7 +9,7 @@ airflow: left-to-right
 model: FabricEngine-4220-24P-4X
 slug: extreme-networks-fabricengine-4220-24p-4x
 comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). [4000 Series
-  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet?v=bb9ebc88)
+  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/4000-Series-Data-Sheet)
 console-ports:
 - name: Console
   type: rj-45

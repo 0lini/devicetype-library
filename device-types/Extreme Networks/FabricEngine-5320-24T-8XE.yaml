@@ -12,7 +12,7 @@ comments: Dual-persona Universal Hardware running Fabric Engine (VOSS). 24 coppe
   and 8 SFP+ ports; all ports support MACsec. Ports 1/29-1/32 support 100M, 1G, and
   10G optics. By default, ports 1/25-1/27 are reserved for internal loopback in SPBM
   mode; in non-SPBM mode, ports 1/25-1/32 support 1G and 10G optics. [5320 Series
-  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d474173d28554fb5925dc4e26312c8fe?v=c6d9813f)
+  Datasheet](https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5320-Series-Data-Sheet)
   | [5320 Series Installation Guide](https://documentation.extremenetworks.com/5320%20Series%20Installation%20Guide/downloads/5320_Series_Installation_Guide.pdf)
 power-ports:
 - name: PS#1
