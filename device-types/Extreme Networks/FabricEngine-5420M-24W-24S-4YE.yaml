@@ -235,10 +235,12 @@ module-bays:
 - name: PS#2
   position: '2'
 - name: 1/53
-  label: U1
+  label: '53'
   position: 1/53
-  description: Can be used for stacking or 2x 10Gb ethernet
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode
 - name: 1/54
-  label: U2
+  label: '54'
   position: 1/54
-  description: Can be used for stacking or 2x 10Gb ethernet
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode

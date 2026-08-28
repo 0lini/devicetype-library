@@ -271,13 +271,14 @@ module-bays:
   position: '2'
 - name: VIM
   position: '2'
+  description: VIM slot reserved for internal loopback in SPBM vim bandwidth mode
 - name: 1/49
-  label: U1
+  label: '49'
   position: 1/49
-  description: Connects at 1x40Gb, 2x 50Gb, 4x 25Gb, or 4x 10Gb, but not 1x 100Gb.  Or
-    use for stacking.
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode
 - name: 1/50
-  label: U2
+  label: '50'
   position: 1/50
-  description: Connects at 1x40Gb, 2x 50Gb, 4x 25Gb, or 4x 10Gb, but not 1x 100Gb.  Or
-    use for stacking.
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode

@@ -165,10 +165,12 @@ module-bays:
   label: '28'
   position: 1/28
 - name: 1/29
-  label: U1
+  label: '29'
   position: 1/29
-  description: Can be used for stacking or 10Gb ethernet
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode
 - name: 1/30
-  label: U2
+  label: '30'
   position: 1/30
-  description: Can be used for stacking or 10Gb ethernet
+  description: Universal Ethernet port; reserved for internal loopback in SPBM low
+    bandwidth mode
