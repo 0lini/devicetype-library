@@ -287,8 +287,8 @@ module-bays:
 - name: 1/53
   label: U1
   position: 1/53
-  description: Can be used for stacking or 100Gb ethernet
+  description: 100Gb ethernet
 - name: 1/54
   label: U2
   position: 1/54
-  description: Can be used for stacking or 100Gb ethernet
+  description: 100Gb ethernet

@@ -26,11 +26,9 @@ interfaces:
   mgmt_only: true
 - name: 1/45
   type: 25gbase-x-sfp28
-  description: For normal use or for stacking.
   label: '45'
 - name: 1/46
   type: 25gbase-x-sfp28
-  description: For normal use or for stacking.
   label: '46'
 module-bays:
 - name: PS#1
@@ -172,16 +170,12 @@ module-bays:
 - name: 1/51
   label: U1
   position: 1/51
-  description: For normal use or for stacking.
 - name: 1/52
   label: U2
   position: 1/52
-  description: For normal use or for stacking.
 - name: 1/49
   label: '49'
   position: 1/49
-  description: For normal use or for stacking.
 - name: 1/50
   label: '50'
   position: 1/50
-  description: For normal use or for stacking.

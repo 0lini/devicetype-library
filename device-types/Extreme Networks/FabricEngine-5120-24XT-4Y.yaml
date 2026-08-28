@@ -98,11 +98,9 @@ interfaces:
   label: '24'
 - name: 1/25
   type: 25gbase-x-sfp28
-  description: For normal use or for stacking.
   label: '25'
 - name: 1/26
   type: 25gbase-x-sfp28
-  description: For normal use or for stacking.
   label: '26'
 module-bays:
 - name: PS#1
@@ -112,8 +110,6 @@ module-bays:
 - name: 1/27
   label: U1
   position: 1/27
-  description: For normal use or for stacking.
 - name: 1/28
   label: U2
   position: 1/28
-  description: For normal use or for stacking.

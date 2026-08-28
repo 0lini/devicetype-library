@@ -282,8 +282,10 @@ module-bays:
 - name: 1/51
   label: U1
   position: 1/51
-  description: Can be used for stacking or 10Gb ethernet
+  description: Last SFP+ port; in SPBM high bandwidth mode UNI-NNI and NNI-UNI bandwidth
+    is limited to 1 Gbps
 - name: 1/52
   label: U2
   position: 1/52
-  description: Can be used for stacking or 10Gb ethernet
+  description: Last SFP+ port; in SPBM high bandwidth mode UNI-NNI and NNI-UNI bandwidth
+    is limited to 1 Gbps

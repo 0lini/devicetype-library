@@ -61,6 +61,42 @@ RULES: dict[str, dict[str, tuple[str | None, str | None]]] = {
         "1/27": ("U1", SPBM_4220_SFP),
         "1/28": ("U2", SPBM_4220_SFP),
     },
+    "4220-12T-4X": {
+        "1/15": ("U1", SPBM_4220_SFP),
+        "1/16": ("U2", SPBM_4220_SFP),
+    },
+    "4220-12P-4X": {
+        "1/15": ("U1", SPBM_4220_SFP),
+        "1/16": ("U2", SPBM_4220_SFP),
+    },
+    "4220-24T-4X": {
+        "1/27": ("U1", SPBM_4220_SFP),
+        "1/28": ("U2", SPBM_4220_SFP),
+    },
+    "4220-24P-4X": {
+        "1/27": ("U1", SPBM_4220_SFP),
+        "1/28": ("U2", SPBM_4220_SFP),
+    },
+    "4220-48T-4X": {
+        "1/51": ("U1", SPBM_4220_SFP),
+        "1/52": ("U2", SPBM_4220_SFP),
+    },
+    "4220-48P-4X": {
+        "1/51": ("U1", SPBM_4220_SFP),
+        "1/52": ("U2", SPBM_4220_SFP),
+    },
+    "4220-8MW-40P-4X": {
+        "1/51": ("U1", SPBM_4220_SFP),
+        "1/52": ("U2", SPBM_4220_SFP),
+    },
+    "4120-24MW-4Y": {
+        "1/29": ("U1", "100Gb ethernet"),
+        "1/30": ("U2", "100Gb ethernet"),
+    },
+    "4120-48MW-4Y": {
+        "1/53": ("U1", "100Gb ethernet"),
+        "1/54": ("U2", "100Gb ethernet"),
+    },
 }
 
 PORT24_5420 = [
@@ -188,6 +224,39 @@ SPBM_7830_COMMENT = (
 )
 
 
+def sanitize_stacking_description(desc: str) -> str | None:
+    """Remove Switch Engine stacking references from Fabric Engine port descriptions."""
+    if desc in ("For normal use or for stacking.", "For stacking or as additional SFP+"):
+        return None
+    if desc.startswith("Can be used for stacking in Switch Engine"):
+        return None
+    if desc.startswith("Can be used for stacking or "):
+        return desc[len("Can be used for stacking or ") :]
+    if " Or use for stacking." in desc:
+        cleaned = desc.replace(" Or use for stacking.", "").strip()
+        return cleaned or None
+    if "for stacking or " in desc.lower():
+        idx = desc.lower().find("for stacking or ")
+        return desc[idx + len("for stacking or ") :].strip()
+    return desc
+
+
+def strip_stacking_descriptions(data: dict) -> bool:
+    changed = False
+    for section in ("interfaces", "module-bays"):
+        for item in data.get(section, []) or []:
+            desc = item.get("description")
+            if not desc or "stacking" not in desc.lower():
+                continue
+            cleaned = sanitize_stacking_description(desc)
+            if cleaned is None:
+                del item["description"]
+            else:
+                item["description"] = cleaned
+            changed = True
+    return changed
+
+
 def apply_bay_rules(data: dict, rules: dict[str, tuple[str | None, str | None]]) -> None:
     for section in ("module-bays",):
         items = data.get(section)
@@ -207,6 +276,7 @@ def apply_bay_rules(data: dict, rules: dict[str, tuple[str | None, str | None]])
                 stale = (
                     "Can be used for stacking",
                     "Connects at 1x40Gb",
+                    "For normal use or for stacking",
                     "Reserved for internal loopback when a VIM is installed",
                 )
                 if any(item["description"].startswith(s) for s in stale):
@@ -253,6 +323,12 @@ def main() -> None:
         data["comments"] = f"{base.rstrip()} {SPBM_7830_COMMENT}"
     path.write_text(dump_yaml(data))
     updated.append(path.name)
+
+    for path in sorted(DT.glob("FabricEngine-*.yaml")):
+        data = yaml.safe_load(path.read_text())
+        if strip_stacking_descriptions(data):
+            path.write_text(dump_yaml(data))
+            updated.append(path.name)
 
     print(f"Updated {len(set(updated))} files")
 
