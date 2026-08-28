@@ -1,10 +1,7 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-2000W-FB-A
-part_number: XN-ACPWR-2000W-FB-A
-comments: 2000W AC PoE PSU, front-to-back airflow (C16 inlet). Full 2000W output requires 200-240VAC (limited to 1100W at 100-120VAC). Compatible with 5420M-48W-4YE and 5420M-16MW-32P-4YE.
-airflow: front-to-rear
 power-ports:
-- name: PS#{module}
-  type: iec-60320-c16
-  maximum_draw: 2000
+  - name: Ps#{module}
+    type: iec-60320-c14
+    maximum_draw: 2000
