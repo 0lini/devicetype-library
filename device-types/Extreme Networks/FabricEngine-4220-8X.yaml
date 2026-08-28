@@ -51,10 +51,10 @@ module-bays:
 - name: 1/7
   label: U1
   position: 1/7
-  description: In SPBM high bandwidth mode (default), UNI-NNI and NNI-UNI bandwidth
-    is limited to 1 Gbps (last SFP+ port)
+  description: 'SPBM high bandwidth mode: UNI-NNI and NNI-UNI bandwidth limited to
+    1 Gbps'
 - name: 1/8
   label: U2
   position: 1/8
-  description: In SPBM high bandwidth mode (default), UNI-NNI and NNI-UNI bandwidth
-    is limited to 1 Gbps (last SFP+ port)
+  description: 'SPBM high bandwidth mode: UNI-NNI and NNI-UNI bandwidth limited to
+    1 Gbps'

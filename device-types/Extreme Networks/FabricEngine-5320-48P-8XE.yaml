@@ -277,15 +277,15 @@ module-bays:
 - name: 1/49
   label: '49'
   position: 1/49
-  description: Reserved for internal loopback in SPBM low bandwidth mode
+  description: Reserved for internal loopback in SPBM mode
 - name: 1/50
   label: '50'
   position: 1/50
-  description: Reserved for internal loopback in SPBM low bandwidth mode
+  description: Reserved for internal loopback in SPBM mode
 - name: 1/51
   label: '51'
   position: 1/51
-  description: Reserved for internal loopback in SPBM low bandwidth mode
+  description: Reserved for internal loopback in SPBM mode
 - name: 1/52
   label: '52'
   position: 1/52

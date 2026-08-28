@@ -27,10 +27,8 @@ interfaces:
 - name: '{module}/7'
   label: '7'
   type: 400gbase-x-qsfpdd
-  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
-    in VIM2 (slot 3)
+  description: Reserved for internal loopback in SPBM mode
 - name: '{module}/8'
   label: '8'
   type: 400gbase-x-qsfpdd
-  description: Reserved for internal loopback in SPBM low bandwidth mode when installed
-    in VIM2 (slot 3)
+  description: Reserved for internal loopback in SPBM mode
