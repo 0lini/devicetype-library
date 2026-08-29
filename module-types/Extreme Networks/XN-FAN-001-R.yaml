@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: XN-FAN-001-R
+part_number: XN-FAN-001-R
+profile: Fan
+airflow: rear-to-front
+comments: Fan module, back-to-front airflow for 7520 and 7720 Series (also used in X695, VSP 7400, SLX 9150/9250, 8520, 8720).

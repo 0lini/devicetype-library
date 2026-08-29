@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: '17116'
+part_number: '17116'
+profile: Fan
+airflow: rear-to-front
+comments: Fan module, back-to-front airflow for 5520 Series switches.
