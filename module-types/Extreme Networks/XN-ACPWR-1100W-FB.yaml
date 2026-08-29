@@ -2,10 +2,10 @@
 manufacturer: Extreme Networks
 model: XN-ACPWR-1100W-FB
 part_number: XN-ACPWR-1100W-FB
-comments: 1100W front to back PSU
+comments: 1100W AC PSU, front-to-back airflow (C16 inlet). Compatible with 5720 Series, 5520 Series, VSP 4900, and X465 models.
 weight: 1160
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: iec-60320-c16
     maximum_draw: 1100

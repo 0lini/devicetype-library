@@ -2,11 +2,10 @@
 manufacturer: Extreme Networks
 model: RPS-550W
 part_number: RPS-550W
-comments: 550W external redundant AC power supply for 4220-4MW-20P-4X. Connect RPS-CBL
-  between RPS-OUT and switch before applying AC power.
+comments: 550W external redundant AC PSU, front-to-back airflow (C14 inlet). Compatible with 4220-4MW-20P-4X. Connect RPS-CBL between RPS-OUT and switch before applying AC power.
 airflow: front-to-rear
 power-ports:
-- name: PS#{module}
+- name: '{module}'
   type: iec-60320-c14
   maximum_draw: 550
   description: 100-240 Vac, 50-60 Hz input
