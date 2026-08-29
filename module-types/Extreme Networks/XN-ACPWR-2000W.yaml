@@ -1,8 +1,7 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-2000W
-comments: 2000W AC PSU, front-to-back airflow (C16 inlet). Full 2000W output requires 200-240VAC (limited to 1100W at 100-120VAC).
 power-ports:
-  - name: '{module}'
+  - name: Ps#{module}
     type: iec-60320-c16
     maximum_draw: 2000
