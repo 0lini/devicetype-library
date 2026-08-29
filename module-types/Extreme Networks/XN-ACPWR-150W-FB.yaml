@@ -2,6 +2,6 @@
 manufacturer: Extreme Networks
 model: XN-ACPWR-150W-FB
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: iec-60320-c14
     maximum_draw: 150

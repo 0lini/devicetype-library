@@ -6,6 +6,6 @@ comments: 300W AC power supply for some X460-G2 and X620 models, back to front a
 weight: 1000
 weight_unit: g
 power-ports:
-  - name: PSU{module}
+  - name: '{module}'
     type: iec-60320-c14
     maximum_draw: 300

@@ -6,6 +6,6 @@ comments: PSU for VSP-7254XSQ
 weight: 1360
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: iec-60320-c16
     maximum_draw: 460

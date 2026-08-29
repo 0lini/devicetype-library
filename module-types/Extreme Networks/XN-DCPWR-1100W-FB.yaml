@@ -6,6 +6,6 @@ comments: 1100W DC Power Supply for  X690 and X870 switches datashet[https://doc
 weight: 1120
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: other
     maximum_draw: 1100

@@ -6,6 +6,6 @@ comments: 2000W AC Power Supply for X465 Switch (PoE models) datashet[https://do
 weight: 1340
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: iec-60320-c16
     maximum_draw: 2000

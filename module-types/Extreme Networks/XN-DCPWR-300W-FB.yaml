@@ -6,6 +6,6 @@ comments: 300W DC Power Supply for X460-G2 switch (non-PoE  models) datashet[htt
 weight: 830
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: dc-terminal
     maximum_draw: 300

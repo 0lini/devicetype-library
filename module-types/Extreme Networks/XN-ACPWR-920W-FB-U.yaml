@@ -5,6 +5,6 @@ part_number: XN-ACPWR-920W-FB-U
 comments: 920W AC PoE PSU, front-to-back airflow (C14 inlet). Compatible with 5420M-24W-24S-4YE.
 airflow: front-to-rear
 power-ports:
-- name: PS#{module}
+- name: '{module}'
   type: iec-60320-c14
   maximum_draw: 920

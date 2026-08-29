@@ -6,6 +6,6 @@ comments: 770W AC Power Supply for X590, X690 and X870 switches datashet[https:/
 weight: 1120
 weight_unit: g
 power-ports:
-  - name: Ps#{module}
+  - name: '{module}'
     type: iec-60320-c16
     maximum_draw: 770
