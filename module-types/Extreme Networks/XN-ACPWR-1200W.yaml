@@ -1,6 +1,7 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-1200W
+comments: 1200W AC PoE PSU, front-to-back airflow (C16 inlet). Compatible with 4120 Series, 5420F-16W-32P-4XE, and 5420F-16MW-32P-4XE.
 power-ports:
   - name: '{module}'
     type: iec-60320-c16

@@ -1,6 +1,7 @@
 ---
 manufacturer: Extreme Networks
 model: XN-ACPWR-600W
+comments: 600W AC PoE PSU, front-to-back airflow (C14 inlet). Compatible with 5420F-24P-4XE and 5420F-8W-16P-4XE.
 power-ports:
   - name: '{module}'
     type: iec-60320-c14

@@ -2,7 +2,7 @@
 manufacturer: Extreme Networks
 model: XN-DCPWR-550W-FB
 part_number: xn-dcpwr-550w-fb
-comments: 550W DC Power Supply [https://documentation.extremenetworks.com/wired/5520/GUID-E504B7F1-BD7C-47B9-988E-B711DA714651.shtml]
+comments: 550W DC PSU, front-to-back airflow (terminal block). Compatible with 5520 Series.
 weight: 810
 weight_unit: g
 power-ports:

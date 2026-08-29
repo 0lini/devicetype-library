@@ -2,7 +2,7 @@
 manufacturer: Extreme Networks
 model: XN-ACPWR-550W-BF-A
 part_number: XN-ACPWR-550W-BF-A
-comments: 550W AC PSU, back-to-front airflow (C14 inlet). 5120 Series.
+comments: 550W AC PSU, back-to-front airflow (C14 inlet). Compatible with 5120 Series.
 airflow: rear-to-front
 power-ports:
 - name: '{module}'

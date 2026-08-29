@@ -2,7 +2,7 @@
 manufacturer: Extreme Networks
 model: Summit-1100W-AC-FB
 part_number: '10941'
-comments: 1100W AC power supply, essentially the same as XN-ACPWR-1100W-FB.  [Info](https://documentation.extremenetworks.com/summit_16/GUID-2F804D71-870E-4736-B310-2A1CB4CD94DD.shtml)
+comments: 1100W AC PSU, front-to-back airflow (C16 inlet). Compatible with Summit / X460-G2 PoE platforms (equivalent to XN-ACPWR-1100W-FB).
 weight: 1.12
 weight_unit: kg
 power-ports:

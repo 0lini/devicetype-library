@@ -2,9 +2,7 @@
 manufacturer: Extreme Networks
 model: RPS-150W-XT
 part_number: RPS-150W-XT
-comments: 150W external redundant AC power supply (extended temperature, front-to-back
-  airflow) for 5320-24T-4X-XT and 5320-24T-24S-4XE-XT. Connect RPS-CBL between RPS-OUT
-  and switch before applying AC power.
+comments: 150W external redundant AC PSU, front-to-back airflow (C14 inlet, extended temperature). Compatible with 5320-24T-4X-XT and 5320-24T-24S-4XE-XT. Connect RPS-CBL between RPS-OUT and switch before applying AC power.
 airflow: front-to-rear
 power-ports:
 - name: '{module}'
