@@ -31,6 +31,18 @@ module-bays:
   - name: PS#2
     label: PSU2
     position: PS#2
+  - name: Fan#1
+    label: FAN1
+    position: Fan#1
+  - name: Fan#2
+    label: FAN2
+    position: Fan#2
+  - name: Fan#3
+    label: FAN3
+    position: Fan#3
+  - name: Fan#4
+    label: FAN4
+    position: Fan#4
   - name: VIM1
     position: '2'
   - name: VIM2

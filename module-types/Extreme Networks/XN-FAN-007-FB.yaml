@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: XN-FAN-007-FB
+part_number: XN-FAN-007-FB
+profile: Fan
+airflow: front-to-rear
+comments: Fan module, front-to-back airflow for 7830 Series switches.

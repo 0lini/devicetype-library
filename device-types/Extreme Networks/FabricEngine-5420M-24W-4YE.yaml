@@ -154,6 +154,9 @@ module-bays:
   - name: PS#2
     label: PSU2
     position: PS#2
+  - name: Fan#1
+    label: FAN1
+    position: Fan#1
   - name: 1/25
     label: '25'
     position: 1/25

@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: X870-FANBF
+part_number: X870-FANBF
+profile: Fan
+airflow: rear-to-front
+comments: Fan module, back-to-front airflow for 5520 Series switches (also used in X870).

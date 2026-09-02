@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: XN-FAN-000
+part_number: XN-FAN-000
+profile: Fan
+airflow: front-to-rear
+comments: Spare fan module, front-to-back airflow for 5420M Series switches.

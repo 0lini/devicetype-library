@@ -1,0 +1,7 @@
+---
+manufacturer: Extreme Networks
+model: XN-FAN-005-F
+part_number: XN-FAN-005-F
+profile: Fan
+airflow: front-to-rear
+comments: Spare fan module, front-to-back airflow for 5720 Series switches.

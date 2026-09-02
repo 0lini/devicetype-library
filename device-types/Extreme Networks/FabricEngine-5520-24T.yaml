@@ -105,6 +105,12 @@ module-bays:
   - name: PS#2
     label: PSU2
     position: PS#2
+  - name: Fan#1
+    label: FAN1
+    position: Fan#1
+  - name: Fan#2
+    label: FAN2
+    position: Fan#2
   - name: VIM
     position: '2'
     description: Reserved for internal loopback in SPBM mode
