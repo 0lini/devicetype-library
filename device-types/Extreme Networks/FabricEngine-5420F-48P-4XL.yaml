@@ -17,18 +17,18 @@ console-ports:
     label: CONSOLE
     type: usb-micro-b
 power-ports:
-  - name: PS#1
+  - name: Ps#1
     type: iec-60320-c14
     maximum_draw: 1657
 interfaces:
-  - name: mgmt-oob
+  - name: Mgmt-oob
     label: MGMT
     type: 1000base-t
     mgmt_only: true
-  - name: mgmt-clip
+  - name: Mgmt-clip
     type: virtual
     mgmt_only: true
-  - name: mgmt-vlan
+  - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
   - name: 1/1
@@ -272,9 +272,9 @@ interfaces:
     poe_mode: pse
     poe_type: type2-ieee802.3at
 module-bays:
-  - name: PS#2
+  - name: Ps#2
     label: PSU2
-    position: PS#2
+    position: Ps#2
   - name: 1/49
     label: '49'
     position: 1/49

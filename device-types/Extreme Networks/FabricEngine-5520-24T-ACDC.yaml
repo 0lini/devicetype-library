@@ -16,14 +16,14 @@ console-ports:
     label: CONSOLE
     type: usb-micro-b
 interfaces:
-  - name: mgmt-oob
+  - name: Mgmt-oob
     label: Management
     type: 1000base-t
     mgmt_only: true
-  - name: mgmt-clip
+  - name: Mgmt-clip
     type: virtual
     mgmt_only: true
-  - name: mgmt-vlan
+  - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
   - name: 1/1
@@ -99,12 +99,12 @@ interfaces:
     label: '24'
     type: 1000base-t
 module-bays:
-  - name: PS#1
+  - name: Ps#1
     label: PSU1
-    position: PS#1
-  - name: PS#2
+    position: Ps#1
+  - name: Ps#2
     label: PSU2
-    position: PS#2
+    position: Ps#2
   - name: Fan#1
     label: FAN1
     position: Fan#1

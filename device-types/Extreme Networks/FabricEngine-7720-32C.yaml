@@ -13,29 +13,29 @@ console-ports:
     label: CONSOLE
     type: rj-45
 interfaces:
-  - name: mgmt-oob-2
+  - name: Mgmt-oob-2
     label: MGMT2
     type: 1000base-t
     mgmt_only: true
     description: CPU and BMC (secondary)
-  - name: mgmt-oob
+  - name: Mgmt-oob
     label: MGMT1
     type: 1000base-t
     mgmt_only: true
     description: Direct to CPU (primary)
-  - name: mgmt-clip
+  - name: Mgmt-clip
     type: virtual
     mgmt_only: true
-  - name: mgmt-vlan
+  - name: Mgmt-vlan
     type: virtual
     mgmt_only: true
 module-bays:
-  - name: PS#1
+  - name: Ps#1
     label: PSU1
-    position: PS#1
-  - name: PS#2
+    position: Ps#1
+  - name: Ps#2
     label: PSU2
-    position: PS#2
+    position: Ps#2
   - name: Fan#1
     label: FAN1
     position: Fan#1
