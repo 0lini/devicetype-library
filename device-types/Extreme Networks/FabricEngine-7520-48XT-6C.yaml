@@ -168,12 +168,12 @@ interfaces:
     label: '48'
     type: 10gbase-t
 module-bays:
-  - name: PS#1
+  - name: Ps#1
     label: PSU1
-    position: PS#1
-  - name: PS#2
+    position: Ps#1
+  - name: Ps#2
     label: PSU2
-    position: PS#2
+    position: Ps#2
   - name: Fan#1
     label: FAN1
     position: Fan#1

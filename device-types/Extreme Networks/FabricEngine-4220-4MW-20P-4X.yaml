@@ -17,7 +17,7 @@ console-ports:
     label: CONSOLE
     type: usb-micro-b
 power-ports:
-  - name: PS#1
+  - name: Ps#1
     type: iec-60320-c14
     maximum_draw: 458
 interfaces:
@@ -152,7 +152,7 @@ interfaces:
     poe_mode: pse
     poe_type: type4-ieee802.3bt
 module-bays:
-  - name: PS#2
+  - name: Ps#2
     position: '2'
   - name: 1/25
     label: '25'

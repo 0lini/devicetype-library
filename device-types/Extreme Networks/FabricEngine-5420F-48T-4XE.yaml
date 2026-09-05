@@ -17,7 +17,7 @@ console-ports:
     label: CONSOLE
     type: usb-micro-b
 power-ports:
-  - name: PS#1
+  - name: Ps#1
     type: iec-60320-c14
     maximum_draw: 75
 interfaces:
@@ -176,9 +176,9 @@ interfaces:
     label: '48'
     type: 1000base-t
 module-bays:
-  - name: PS#2
+  - name: Ps#2
     label: PSU2
-    position: PS#2
+    position: Ps#2
   - name: 1/49
     label: '49'
     position: 1/49
